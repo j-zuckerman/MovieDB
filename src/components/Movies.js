@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchPopularMovies } from '../actions';
 import { connect } from 'react-redux';
 import '../styles.css';
+import Carousel from './Carousel';
 
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
@@ -25,11 +26,7 @@ class Movies extends Component {
           <section>
             <h1>Popular Movies</h1>
             <div class="row">
-              {this.props.movie.popularMovies.map(movie => (
-                <div>
-                  <img src={`${baseImageURLPoster}${movie.poster_path}`} />
-                </div>
-              ))}
+              <Carousel data={this.props.movie.popularMovies} />
             </div>
           </section>
         </React.Fragment>
