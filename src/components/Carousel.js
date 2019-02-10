@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { fetchMovie } from '../actions';
+import { connect } from 'react-redux';
+import '../styles.css';
+
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 
 class Carousel extends Component {
@@ -6,60 +10,72 @@ class Carousel extends Component {
     console.log(this.props.data);
     return (
       <div
-        id="carouselExampleControls"
+        id="carousel"
         className="carousel slide"
         data-ride="carousel"
         data-interval="false"
       >
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <div class="row">
+            <div className="row">
               {this.props.data
                 .filter((el, index) => index < 5)
                 .map(el => (
-                  <img
-                    className="d-block w-2000"
-                    src={`${baseImageURLPoster}${el.poster_path}`}
-                    alt="First slide"
-                  />
+                  <section key={el.id} className="poster zoom">
+                    <img
+                      src={`${baseImageURLPoster}${el.poster_path}`}
+                      alt="First slide"
+                      onClick={() => this.props.fetchMovie(el.id)}
+                      className="image"
+                    />
+                    <p className="description bottom-left">
+                      This image looks super neat.
+                    </p>
+                  </section>
                 ))}
             </div>
           </div>
           <div className="carousel-item">
-            <div class="row">
+            <div className="row">
               {this.props.data
                 .filter((el, index) => index < 10 && index > 4)
                 .map(el => (
                   <img
-                    className="d-block w-2000"
+                    key={el.id}
+                    className="d-block poster"
                     src={`${baseImageURLPoster}${el.poster_path}`}
                     alt="First slide"
+                    onClick={() => this.props.fetchMovie(el.id)}
                   />
                 ))}
             </div>
           </div>
           <div className="carousel-item">
-            <div class="row">
+            <div className="row">
               {this.props.data
                 .filter((el, index) => index < 15 && index > 9)
                 .map(el => (
                   <img
-                    className="d-block w-2000"
+                    key={el.id}
+                    className="d-block poster zoom"
                     src={`${baseImageURLPoster}${el.poster_path}`}
                     alt="First slide"
+                    onClick={() => this.props.fetchMovie(el.id)}
                   />
                 ))}
             </div>
           </div>
           <div className="carousel-item">
-            <div class="row">
+            <div className="row">
               {this.props.data
                 .filter((el, index) => index < 20 && index > 14)
                 .map(el => (
                   <img
-                    className="d-block w-2000"
+                    key={el.id}
+                    className="d-block poster"
                     src={`${baseImageURLPoster}${el.poster_path}`}
                     alt="First slide"
+                    onClick={() => this.props.fetchMovie(el.id)}
                   />
                 ))}
             </div>
@@ -67,7 +83,7 @@ class Carousel extends Component {
         </div>
         <a
           className="carousel-control-prev"
-          href="#carouselExampleControls"
+          href="#carousel"
           role="button"
           data-slide="prev"
         >
@@ -76,7 +92,7 @@ class Carousel extends Component {
         </a>
         <a
           className="carousel-control-next"
-          href="#carouselExampleControls"
+          href="#carousel"
           role="button"
           data-slide="next"
         >
@@ -88,4 +104,7 @@ class Carousel extends Component {
   }
 }
 
-export default Carousel;
+export default connect(
+  null,
+  { fetchMovie }
+)(Carousel);

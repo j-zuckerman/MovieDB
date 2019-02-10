@@ -1,7 +1,8 @@
 const initialState = {
   trending: [],
   popularMovies: [],
-  popularShows: []
+  popularShows: [],
+  details: null
 };
 
 export default (state = initialState, action) => {
@@ -17,8 +18,9 @@ export default (state = initialState, action) => {
         popularMovies: action.payload
       };
     case 'POPULAR_SHOWS':
-      console.log(action.payload);
-      return { ...state };
+      return { ...state, popularShows: action.payload };
+    case 'FETCH_MOVIE':
+      return { ...state, details: action.payload };
     default:
       return state;
   }

@@ -18,7 +18,15 @@ export const fetchPopularMovies = () => async dispatch => {
 };
 
 export const fetchPopularShows = () => async dispatch => {
-  const response = await movieDbAPI.get('');
-
+  const response = await movieDbAPI.get(
+    `tv/popular?api_key=${apiKey}&language=en-US&page=1`
+  );
   dispatch({ type: 'POPULAR_SHOWS', payload: response.data.results });
+};
+
+export const fetchMovie = id => async dispatch => {
+  const response = await movieDbAPI.get(
+    `movie/${id}?api_key=${apiKey}&language=en-US&page=1`
+  );
+  dispatch({ type: 'FETCH_MOVIE', payload: response.data });
 };
