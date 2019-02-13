@@ -21,13 +21,19 @@ class Carousel extends Component {
               {this.props.data
                 .filter((el, index) => index < 5)
                 .map(el => (
-                  <section key={el.id} className="poster zoom">
-                    <img
-                      src={`${baseImageURLPoster}${el.poster_path}`}
-                      alt="First slide"
-                      onClick={() => this.props.fetchMovie(el.id)}
-                      className="image"
-                    />
+                  <section
+                    key={el.id}
+                    style={{
+                      backgroundImage: `url(
+                    ${baseImageURLPoster}${el.poster_path}
+                  )`,
+                      backgroundPosition: 'center',
+                      backgroundSize: 'cover',
+                      backgroundRepeat: 'no-repeat'
+                    }}
+                    onClick={() => this.props.fetchMovie(el.id)}
+                    className="poster zoom image"
+                  >
                     <p className="description bottom-left">
                       This image looks super neat.
                     </p>
@@ -40,13 +46,22 @@ class Carousel extends Component {
               {this.props.data
                 .filter((el, index) => index < 10 && index > 4)
                 .map(el => (
-                  <img
-                    key={el.id}
-                    className="d-block poster"
-                    src={`${baseImageURLPoster}${el.poster_path}`}
-                    alt="First slide"
-                    onClick={() => this.props.fetchMovie(el.id)}
-                  />
+                  <div className="hvrbox">
+                    <img
+                      key={el.id}
+                      className="hvrbox-layer_bottom"
+                      src={`${baseImageURLPoster}${el.poster_path}`}
+                      alt="First slide"
+                    />
+                    <div
+                      className="hvrbox-layer_top"
+                      onClick={() => this.props.fetchMovie(el.id)}
+                    >
+                      <div className="hvrbox-text">
+                        {el.title} {el.release_date} {el.vote_average}
+                      </div>
+                    </div>
+                  </div>
                 ))}
             </div>
           </div>
