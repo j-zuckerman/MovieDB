@@ -11,25 +11,24 @@ class Details extends Component {
     if (this.props.detail.details !== null) {
       return (
         <section
-          className="backdrop backdrop-grid"
+          className="selected"
           style={{
             backgroundImage: `url(
         ${baseImageURLBackdrop}${this.props.detail.details.backdrop_path}
-      )`,
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat'
+      )`
           }}
         >
-          <section className="backdrop-details">
-            <h1>{this.props.detail.details.title}</h1>
-            <h1>{this.props.detail.details.adult}</h1>
-            <h1>{this.props.detail.details.overview}</h1>
-            <h1>{this.props.detail.details.runtime}</h1>
-            <h1>{this.props.detail.details.release_date}</h1>
-            <h1>{this.props.detail.details.tagline}</h1>
-            <h1>{this.props.detail.details.vote_average}</h1>
-          </section>
+          <div className="backdrop-layer_top selected-grid">
+            <section className="selected-details">
+              <h1>{this.props.detail.details.title}</h1>
+              <h1>{this.props.detail.details.adult}</h1>
+              <h1>{this.props.detail.details.overview}</h1>
+              <h1>{this.props.detail.details.runtime}</h1>
+              <h1>{this.props.detail.details.release_date}</h1>
+              <h1>{this.props.detail.details.tagline}</h1>
+              <h1>{this.props.detail.details.vote_average}</h1>
+            </section>
+          </div>
         </section>
       );
     } else {

@@ -7,15 +7,15 @@ import Shows from './components/Shows';
 class App extends Component {
   render() {
     return (
-      <Router>
-        <React.Fragment>
-          <Navbar />
+      <React.Fragment>
+        <Navbar />
+        <Router>
           <Switch>
             <Route exact path="/" component={Movies} />
             <Route exact path="/shows" component={Shows} />
           </Switch>
-        </React.Fragment>
-      </Router>
+        </Router>
+      </React.Fragment>
     );
   }
 }

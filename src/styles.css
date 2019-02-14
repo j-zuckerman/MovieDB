@@ -20,18 +20,8 @@ a {
 }
 
 .poster {
-  margin-left: 20px;
-  margin-right: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .backdrop {
@@ -48,37 +38,10 @@ a {
       grid-template-rows: 25% 100px auto;
 }
 
-.backdrop-grid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 40px 50px auto 50px 40px;
-      grid-template-columns: 40px 50px auto 50px 40px;
-  -ms-grid-rows: 25% 100px auto;
-      grid-template-rows: 25% 100px auto;
-}
-
-.backdrop-details {
-  -ms-grid-column: 2;
-      grid-column-start: 2;
-  grid-column-end: five;
-  -ms-grid-row: row1-start;
-      grid-row-start: row1-start;
-  grid-row-end: 3;
-  font-size: 75px;
-  color: White;
-}
-
 #carousel {
+  width: 100%;
   margin-left: 50px;
   margin-right: 50px;
-}
-
-.carousel-control-prev-icon {
-  margin-left: -175px;
-}
-
-.carousel-control-next {
-  margin-right: -100px;
 }
 
 .zoom {
@@ -174,5 +137,92 @@ a {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.backdrop {
+  width: 100%;
+  height: 720px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.backdrop .backdrop-layer_top {
+  opacity: 1;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  padding: 15px;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.backdrop-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 40% auto;
+      grid-template-columns: 40% auto;
+  -ms-grid-rows: 20% 40% auto;
+      grid-template-rows: 20% 40% auto;
+}
+
+.backdrop-details {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+}
+
+.selected {
+  width: 100%;
+  height: 720px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.selected .backdrop-layer_top {
+  opacity: 1;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  padding: 15px;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.selected-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 40% auto;
+      grid-template-columns: 40% auto;
+}
+
+.selected-details {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+}
+
+.carousel-control-prev {
+  margin-left: -100px;
+}
+
+#carousel {
+  width: 1100px;
 }
 /*# sourceMappingURL=styles.css.map */

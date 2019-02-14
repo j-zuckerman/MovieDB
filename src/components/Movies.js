@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import '../styles.css';
 import Carousel from './Carousel';
 import Details from './Details';
-
+import Navbar from './Navbar';
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
 
@@ -18,19 +18,18 @@ class Movies extends Component {
       return (
         <React.Fragment>
           <section
-            className="backdrop backdrop-grid"
+            className="backdrop"
             style={{
               backgroundImage: `url(
                 ${baseImageURLBackdrop}${
                 this.props.movie.popularMovies[0].backdrop_path
               }
-              )`,
-              backgroundPosition: 'center',
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat'
+              )`
             }}
           >
-            <h1 className="backdrop-details"> Hello</h1>
+            <div className="backdrop-layer_top backdrop-grid">
+              <h1 className="backdrop-details"> Hello</h1>
+            </div>
           </section>
           <section>
             <h1>Popular Movies</h1>
