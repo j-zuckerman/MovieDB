@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {
   fetchPopularShows,
+  fetchOnTheAirShows,
+  fetchTopRatedShows,
   changeToMovieDisplay,
   changeToShowDisplay
 } from '../actions';
@@ -14,6 +16,8 @@ const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
 class Shows extends Component {
   componentDidMount() {
     this.props.fetchPopularShows();
+    this.props.fetchOnTheAirShows();
+    this.props.fetchTopRatedShows();
   }
   render() {
     console.log(this.props.shows.popularShows);
@@ -58,7 +62,26 @@ class Shows extends Component {
 
             <h1>Popular Shows</h1>
             <div className="row">
-              <Carousel data={this.props.shows.popularShows} />
+              <Carousel
+                data={this.props.shows.popularShows}
+                id={'PopularShows'}
+              />
+            </div>
+
+            <h1>Top Rated Shows</h1>
+            <div className="row">
+              <Carousel
+                data={this.props.shows.ratedShows}
+                id={'TopRatedShows'}
+              />
+            </div>
+
+            <h1>Shows On The Air</h1>
+            <div className="row">
+              <Carousel
+                data={this.props.shows.onTheAirShows}
+                id={'LatestShows'}
+              />
             </div>
           </section>
         </React.Fragment>
@@ -72,5 +95,11 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { fetchPopularShows, changeToMovieDisplay, changeToShowDisplay }
+  {
+    fetchPopularShows,
+    fetchOnTheAirShows,
+    fetchTopRatedShows,
+    changeToMovieDisplay,
+    changeToShowDisplay
+  }
 )(Shows);

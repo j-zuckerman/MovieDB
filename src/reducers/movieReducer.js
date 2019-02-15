@@ -1,7 +1,9 @@
 const initialState = {
-  trending: [],
+  playingMovies: [],
   popularMovies: [],
   ratedMovies: [],
+  onTheAirShows: [],
+  ratedShows: [],
   popularShows: [],
   details: null,
   onMovieDisplay: true
@@ -9,10 +11,10 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'TRENDING_FETCHED':
+    case 'PLAYING_MOVIES':
       return {
         ...state,
-        trending: action.payload
+        playingMovies: action.payload
       };
     case 'POPULAR_MOVIES':
       return {
@@ -21,6 +23,10 @@ export default (state = initialState, action) => {
       };
     case 'RATED_MOVIES':
       return { ...state, ratedMovies: action.payload };
+    case 'ON_THE_AIR_SHOWS':
+      return { ...state, onTheAirShows: action.payload };
+    case 'RATED_SHOWS':
+      return { ...state, ratedShows: action.payload };
     case 'POPULAR_SHOWS':
       return { ...state, popularShows: action.payload };
     case 'FETCH_MOVIE':

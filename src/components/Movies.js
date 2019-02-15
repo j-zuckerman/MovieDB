@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   fetchPopularMovies,
   fetchTopRatedMovies,
+  fetchPlayingMovies,
   changeToMovieDisplay,
   changeToShowDisplay
 } from '../actions';
@@ -18,6 +19,7 @@ class Movies extends Component {
   componentDidMount() {
     this.props.fetchPopularMovies();
     this.props.fetchTopRatedMovies();
+    this.props.fetchPlayingMovies();
   }
   render() {
     console.log(this.props.movie.popularMovies);
@@ -64,7 +66,26 @@ class Movies extends Component {
 
             <h1>Popular Movies</h1>
             <div className="row">
-              <Carousel data={this.props.movie.popularMovies} />
+              <Carousel
+                data={this.props.movie.popularMovies}
+                id={'PopularMovies'}
+              />
+            </div>
+
+            <h1>Top Rated Movies</h1>
+            <div className="row">
+              <Carousel
+                data={this.props.movie.ratedMovies}
+                id={'TopRatedMovies'}
+              />
+            </div>
+
+            <h1>Movies Now Playing</h1>
+            <div className="row">
+              <Carousel
+                data={this.props.movie.playingMovies}
+                id={'LatestMovies'}
+              />
             </div>
           </section>
 
@@ -83,6 +104,7 @@ export default connect(
   {
     fetchPopularMovies,
     fetchTopRatedMovies,
+    fetchPlayingMovies,
     changeToMovieDisplay,
     changeToShowDisplay
   }

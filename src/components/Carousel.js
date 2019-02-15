@@ -10,7 +10,7 @@ class Carousel extends Component {
     console.log(this.props.data);
     return (
       <div
-        id="carousel"
+        id={this.props.id}
         className="carousel slide"
         data-ride="carousel"
         data-interval="false"
@@ -57,7 +57,7 @@ class Carousel extends Component {
                       onClick={() => this.props.fetchMovie(el.id)}
                     >
                       <div className="hvrbox-text">
-                        {el.title} {el.release_date} {el.vote_average}
+                        Rating: {el.vote_average}
                       </div>
                     </div>
                   </div>
@@ -81,7 +81,7 @@ class Carousel extends Component {
                       onClick={() => this.props.fetchMovie(el.id)}
                     >
                       <div className="hvrbox-text">
-                        {el.title} {el.release_date} {el.vote_average}
+                        Rating: {el.vote_average}
                       </div>
                     </div>
                   </div>
@@ -105,7 +105,7 @@ class Carousel extends Component {
                       onClick={() => this.props.fetchMovie(el.id)}
                     >
                       <div className="hvrbox-text">
-                        {el.title} {el.release_date} {el.vote_average}
+                        Rating: {el.vote_average}
                       </div>
                     </div>
                   </div>
@@ -115,7 +115,7 @@ class Carousel extends Component {
         </div>
         <a
           className="carousel-control-prev"
-          href="#carousel"
+          href={`#${this.props.id}`}
           role="button"
           data-slide="prev"
         >
@@ -124,7 +124,7 @@ class Carousel extends Component {
         </a>
         <a
           className="carousel-control-next"
-          href="#carousel"
+          href={`#${this.props.id}`}
           role="button"
           data-slide="next"
         >

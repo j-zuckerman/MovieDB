@@ -2,12 +2,12 @@ import movieDbAPI from '../apis/movieDbAPI';
 const apiKey = '9f39dd9c4f8c9231614049d653d261d6';
 
 //Action creators
-export const fetchTrending = () => async dispatch => {
+export const fetchPlayingMovies = () => async dispatch => {
   const response = await movieDbAPI.get(
-    `movie/popular?api_key=${apiKey}&language=en-US&page=1`
+    `movie/now_playing?api_key=${apiKey}&language=en-US&page=1`
   );
 
-  dispatch({ type: 'TRENDING_FETCHED', payload: response.data.results });
+  dispatch({ type: 'PLAYING_MOVIES', payload: response.data.results });
 };
 
 export const fetchPopularMovies = () => async dispatch => {
@@ -24,6 +24,18 @@ export const fetchTopRatedMovies = () => async dispatch => {
   );
 
   dispatch({ type: 'RATED_MOVIES', payload: response.data.results });
+};
+export const fetchOnTheAirShows = () => async dispatch => {
+  const response = await movieDbAPI.get(
+    `tv/on_the_air?api_key=${apiKey}&language=en-US&page=1`
+  );
+  dispatch({ type: 'ON_THE_AIR_SHOWS', payload: response.data.results });
+};
+export const fetchTopRatedShows = () => async dispatch => {
+  const response = await movieDbAPI.get(
+    `tv/top_rated?api_key=${apiKey}&language=en-US&page=1`
+  );
+  dispatch({ type: 'RATED_SHOWS', payload: response.data.results });
 };
 
 export const fetchPopularShows = () => async dispatch => {
