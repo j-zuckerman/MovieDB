@@ -45,7 +45,8 @@ export const fetchPopularShows = () => async dispatch => {
   dispatch({ type: 'POPULAR_SHOWS', payload: response.data.results });
 };
 
-export const fetchMovie = id => async dispatch => {
+export const fetchMovieDetails = id => async dispatch => {
+  console.log(id);
   const response = await movieDbAPI.get(
     `movie/${id}?api_key=${apiKey}&language=en-US&page=1`
   );

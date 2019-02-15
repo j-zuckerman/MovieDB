@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import '../styles/poster.css';
 import '../styles/backdrop.css';
 import Carousel from './Carousel';
-import Details from './Details';
+import Details from './MovieDetails';
 
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
@@ -69,6 +69,7 @@ class Movies extends Component {
               <Carousel
                 data={this.props.movie.popularMovies}
                 id={'PopularMovies'}
+                type={'MOVIES'}
               />
             </div>
 
@@ -77,6 +78,7 @@ class Movies extends Component {
               <Carousel
                 data={this.props.movie.ratedMovies}
                 id={'TopRatedMovies'}
+                type={'MOVIES'}
               />
             </div>
 
@@ -85,11 +87,10 @@ class Movies extends Component {
               <Carousel
                 data={this.props.movie.playingMovies}
                 id={'LatestMovies'}
+                type={'MOVIES'}
               />
             </div>
           </section>
-
-          <Details />
         </React.Fragment>
       );
     } else return <div>Loading popular movies.</div>;

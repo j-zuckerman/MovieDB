@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
-import { fetchMovie } from '../actions';
-import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import '../styles/carousel.css';
 
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 
 class Carousel extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      detailLink: ''
+    };
+  }
+  componentDidMount() {
+    if (this.props.type === 'MOVIES') {
+      this.setState({ detailLink: 'movie/details/' });
+    } else this.setState({ detailLink: 'show/details/' });
+  }
   render() {
     console.log(this.props.data);
     return (
@@ -21,22 +31,21 @@ class Carousel extends Component {
               {this.props.data
                 .filter((el, index) => index < 5)
                 .map(el => (
-                  <div className="hvrbox poster">
-                    <img
-                      key={el.id}
-                      className="hvrbox-layer_bottom"
-                      src={`${baseImageURLPoster}${el.poster_path}`}
-                      alt="First slide"
-                    />
-                    <div
-                      className="hvrbox-layer_top "
-                      onClick={() => this.props.fetchMovie(el.id)}
-                    >
-                      <div className="hvrbox-text">
-                        Rating: {el.vote_average}
+                  <Link to={this.state.detailLink + el.id}>
+                    <div className="hvrbox poster">
+                      <img
+                        key={el.id}
+                        className="hvrbox-layer_bottom"
+                        src={`${baseImageURLPoster}${el.poster_path}`}
+                        alt="First slide"
+                      />
+                      <div className="hvrbox-layer_top ">
+                        <div className="hvrbox-text">
+                          Rating: {el.vote_average}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
             </div>
           </div>
@@ -52,10 +61,7 @@ class Carousel extends Component {
                       src={`${baseImageURLPoster}${el.poster_path}`}
                       alt="First slide"
                     />
-                    <div
-                      className="hvrbox-layer_top"
-                      onClick={() => this.props.fetchMovie(el.id)}
-                    >
+                    <div className="hvrbox-layer_top">
                       <div className="hvrbox-text">
                         Rating: {el.vote_average}
                       </div>
@@ -76,10 +82,7 @@ class Carousel extends Component {
                       src={`${baseImageURLPoster}${el.poster_path}`}
                       alt="First slide"
                     />
-                    <div
-                      className="hvrbox-layer_top"
-                      onClick={() => this.props.fetchMovie(el.id)}
-                    >
+                    <div className="hvrbox-layer_top">
                       <div className="hvrbox-text">
                         Rating: {el.vote_average}
                       </div>
@@ -100,10 +103,7 @@ class Carousel extends Component {
                       src={`${baseImageURLPoster}${el.poster_path}`}
                       alt="First slide"
                     />
-                    <div
-                      className="hvrbox-layer_top"
-                      onClick={() => this.props.fetchMovie(el.id)}
-                    >
+                    <div className="hvrbox-layer_top">
                       <div className="hvrbox-text">
                         Rating: {el.vote_average}
                       </div>
@@ -136,7 +136,4 @@ class Carousel extends Component {
   }
 }
 
-export default connect(
-  null,
-  { fetchMovie }
-)(Carousel);
+export default Carousel;

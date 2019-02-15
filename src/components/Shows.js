@@ -65,6 +65,7 @@ class Shows extends Component {
               <Carousel
                 data={this.props.shows.popularShows}
                 id={'PopularShows'}
+                type={'SHOWS'}
               />
             </div>
 
@@ -73,6 +74,7 @@ class Shows extends Component {
               <Carousel
                 data={this.props.shows.ratedShows}
                 id={'TopRatedShows'}
+                type={'SHOWS'}
               />
             </div>
 
@@ -81,6 +83,7 @@ class Shows extends Component {
               <Carousel
                 data={this.props.shows.onTheAirShows}
                 id={'LatestShows'}
+                type={'SHOWS'}
               />
             </div>
           </section>

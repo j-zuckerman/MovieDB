@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w500/';
 
-class Details extends Component {
+class ShowDetails extends Component {
   render() {
     console.log(this.props.detail.details);
     if (this.props.detail.details !== null) {
@@ -35,4 +35,4 @@ class Details extends Component {
 const mapStateToProps = state => {
   return { detail: state.movie };
 };
-export default connect(mapStateToProps)(Details);
+export default connect(mapStateToProps)(ShowDetails);
