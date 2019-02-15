@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import Movies from './Movies';
+import Shows from './Shows';
+import { connect } from 'react-redux';
 
 class Home extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      displayMovies: true
-    };
-  }
   render() {
-    if (this.state.displayMovies) {
+    if (this.props.display === true) {
       return <Movies />;
-    }
+    } else return <Shows />;
   }
 }
 
-export default Home;
+const mapStateToProps = state => {
+  return { display: state.movie.onMovieDisplay };
+};
+export default connect(mapStateToProps)(Home);

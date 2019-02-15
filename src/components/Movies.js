@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
-import { fetchPopularMovies } from '../actions';
+import {
+  fetchPopularMovies,
+  fetchTopRatedMovies,
+  changeToMovieDisplay,
+  changeToShowDisplay
+} from '../actions';
 import { connect } from 'react-redux';
 import '../styles/poster.css';
 import '../styles/backdrop.css';
 import Carousel from './Carousel';
 import Details from './Details';
-import Navbar from './Navbar';
+
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
 
 class Movies extends Component {
   componentDidMount() {
     this.props.fetchPopularMovies();
+    this.props.fetchTopRatedMovies();
   }
   render() {
     console.log(this.props.movie.popularMovies);
@@ -40,10 +46,18 @@ class Movies extends Component {
           </section>
           <section className="container">
             <div className="row">
-              <button type="button" className="btn btn-light">
+              <button
+                type="button"
+                className="button"
+                onClick={this.props.changeToMovieDisplay}
+              >
                 Movies
               </button>
-              <button type="button" className="btn btn-light">
+              <button
+                type="button"
+                className="button"
+                onClick={this.props.changeToShowDisplay}
+              >
                 Shows
               </button>
             </div>
@@ -66,5 +80,10 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { fetchPopularMovies }
+  {
+    fetchPopularMovies,
+    fetchTopRatedMovies,
+    changeToMovieDisplay,
+    changeToShowDisplay
+  }
 )(Movies);

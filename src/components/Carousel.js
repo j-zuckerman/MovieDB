@@ -33,7 +33,7 @@ class Carousel extends Component {
                       onClick={() => this.props.fetchMovie(el.id)}
                     >
                       <div className="hvrbox-text">
-                        {el.title} {el.release_date} {el.vote_average}
+                        Rating: {el.vote_average}
                       </div>
                     </div>
                   </div>
