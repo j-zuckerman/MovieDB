@@ -46,11 +46,31 @@ export const fetchPopularShows = () => async dispatch => {
 };
 
 export const fetchMovieDetails = id => async dispatch => {
-  console.log(id);
   const response = await movieDbAPI.get(
     `movie/${id}?api_key=${apiKey}&language=en-US&page=1`
   );
   dispatch({ type: 'FETCH_MOVIE', payload: response.data });
+};
+
+export const fetchShowDetails = id => async dispatch => {
+  const response = await movieDbAPI.get(
+    `tv/${id}?api_key=${apiKey}&language=en-US&page=1`
+  );
+  dispatch({ type: 'FETCH_SHOW', payload: response.data });
+};
+
+export const fetchSimilarMovies = id => async dispatch => {
+  const response = await movieDbAPI.get(
+    `movie/${id}/similar?api_key=${apiKey}&language=en-US&page=1`
+  );
+  dispatch({ type: 'FETCH_SIMILAR_MOVIES', payload: response.data.results });
+};
+
+export const fetchSimilarShows = id => async dispatch => {
+  const response = await movieDbAPI.get(
+    `tv/${id}/similar?api_key=${apiKey}&language=en-US&page=1`
+  );
+  dispatch({ type: 'FETCH_SIMILAR_SHOWS', payload: response.data.results });
 };
 
 export const changeToMovieDisplay = () => {

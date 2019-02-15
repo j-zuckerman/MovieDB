@@ -10,7 +10,6 @@ import { connect } from 'react-redux';
 import '../styles/poster.css';
 import '../styles/backdrop.css';
 import Carousel from './Carousel';
-import Details from './MovieDetails';
 
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';

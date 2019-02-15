@@ -1,38 +1,51 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchShowDetails, fetchSimilarShows } from '../actions';
+import Carousel from './Carousel';
 
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
-const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w500/';
+const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
 
 class ShowDetails extends Component {
+  componentWillMount() {
+    this.props.fetchShowDetails(this.props.match.params.id);
+    this.props.fetchSimilarShows(this.props.match.params.id);
+  }
   render() {
-    console.log(this.props.detail.details);
-    if (this.props.detail.details !== null) {
+    console.log(this.props.similar);
+    if (this.props.detail !== null && this.props.similar !== null) {
       return (
-        <section className="details-grid">
-          <div className="selected-details">
-            {this.props.detail.details.title} <br />
-            {this.props.detail.details.adult} <br />
-            {this.props.detail.details.runtime} <br />
-            {this.props.detail.details.release_date} <br />
-            {this.props.detail.details.tagline} <br />
-            {this.props.detail.details.vote_average}
-          </div>
+        <section className="details-backdrop">
           <img
-            className="selected-image"
-            src={`${baseImageURLBackdrop}${
-              this.props.detail.details.backdrop_path
-            }`}
+            src={`${baseImageURLBackdrop}${this.props.detail.backdrop_path}`}
           />
+          <div className="container">
+            <h1>{this.props.detail.title} </h1>
+            <h2>{this.props.detail.adult} </h2>
+            <h2>{this.props.detail.runtime} </h2>
+            <h2>{this.props.detail.release_date} </h2>
+            <h2>{this.props.detail.tagline} </h2>
+            <h2>{this.props.detail.vote_average} </h2>
+
+            <h1>Similiar Shows</h1>
+            <div className="row">
+              <Carousel
+                data={this.props.similar}
+                id={'SimilarMovies'}
+                type={'SHOWS'}
+              />
+            </div>
+          </div>
         </section>
       );
-    } else {
-      return null;
-    }
+    } else return null;
   }
 }
 
 const mapStateToProps = state => {
-  return { detail: state.movie };
+  return { detail: state.movie.details, similar: state.movie.similarShows };
 };
-export default connect(mapStateToProps)(ShowDetails);
+export default connect(
+  mapStateToProps,
+  { fetchShowDetails, fetchSimilarShows }
+)(ShowDetails);

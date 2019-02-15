@@ -14,7 +14,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/movie/details/:id" component={MovieDetails} />
-            <Route exact path="/shows/details/:id" component={ShowDetails} />
+            <Route exact path="/show/details/:id" component={ShowDetails} />
           </Switch>
         </Router>
       </React.Fragment>

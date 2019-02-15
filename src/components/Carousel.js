@@ -13,8 +13,9 @@ class Carousel extends Component {
   }
   componentDidMount() {
     if (this.props.type === 'MOVIES') {
-      this.setState({ detailLink: 'movie/details/' });
-    } else this.setState({ detailLink: 'show/details/' });
+      this.setState({ detailLink: '/movie/details/' });
+    } else if (this.props.type === 'SHOWS')
+      this.setState({ detailLink: '/show/details/' });
   }
   render() {
     console.log(this.props.data);
@@ -31,7 +32,7 @@ class Carousel extends Component {
               {this.props.data
                 .filter((el, index) => index < 5)
                 .map(el => (
-                  <Link to={this.state.detailLink + el.id}>
+                  <Link to={this.state.detailLink + el.id} currentPath="/">
                     <div className="hvrbox poster">
                       <img
                         key={el.id}
