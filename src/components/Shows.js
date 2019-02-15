@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchPopularShows } from '../actions';
 import { connect } from 'react-redux';
-import '../styles.css';
+import '../styles/poster.css';
 import Carousel from './Carousel';
 
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';

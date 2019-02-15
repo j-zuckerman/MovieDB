@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchMovie } from '../actions';
 import { connect } from 'react-redux';
-import '../styles.css';
+import '../styles/carousel.css';
 
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 
@@ -96,7 +96,7 @@ class Carousel extends Component {
                   <div className="hvrbox poster">
                     <img
                       key={el.id}
-                      className="hvrbox-layer_bottom poster"
+                      className="hvrbox-layer_bottom"
                       src={`${baseImageURLPoster}${el.poster_path}`}
                       alt="First slide"
                     />

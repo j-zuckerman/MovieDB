@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { fetchPopularMovies } from '../actions';
 import { connect } from 'react-redux';
-import '../styles.css';
+import '../styles/poster.css';
+import '../styles/backdrop.css';
 import Carousel from './Carousel';
 import Details from './Details';
 import Navbar from './Navbar';
@@ -28,18 +29,32 @@ class Movies extends Component {
             }}
           >
             <div className="backdrop-layer_top backdrop-grid">
-              <h1 className="backdrop-details"> Hello</h1>
+              <div className="backdrop-details">
+                <h2>MOST POPULAR</h2>
+                <h1>{this.props.movie.popularMovies[0].title}</h1>
+                <h2>
+                  Rating: {this.props.movie.popularMovies[0].vote_average}
+                </h2>
+              </div>
             </div>
           </section>
-          <section>
+          <section className="container">
+            <div className="row">
+              <button type="button" className="btn btn-light">
+                Movies
+              </button>
+              <button type="button" className="btn btn-light">
+                Shows
+              </button>
+            </div>
+
             <h1>Popular Movies</h1>
             <div className="row">
               <Carousel data={this.props.movie.popularMovies} />
             </div>
           </section>
-          <div className="row">
-            <Details />
-          </div>
+
+          <Details />
         </React.Fragment>
       );
     } else return <div>Loading popular movies.</div>;
