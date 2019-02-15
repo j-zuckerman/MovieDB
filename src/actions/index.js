@@ -54,7 +54,7 @@ export const fetchMovieDetails = id => async dispatch => {
 
 export const fetchShowDetails = id => async dispatch => {
   const response = await movieDbAPI.get(
-    `tv/${id}?api_key=${apiKey}&language=en-US&page=1`
+    `tv/${id}?api_key=${apiKey}&language=en-US`
   );
   dispatch({ type: 'FETCH_SHOW', payload: response.data });
 };

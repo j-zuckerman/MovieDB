@@ -32,7 +32,7 @@ class Carousel extends Component {
               {this.props.data
                 .filter((el, index) => index < 5)
                 .map(el => (
-                  <Link to={this.state.detailLink + el.id} currentPath="/">
+                  <Link to={this.state.detailLink + el.id}>
                     <div className="hvrbox poster">
                       <img
                         key={el.id}
