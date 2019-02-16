@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import {
   fetchPopularShows,
   fetchOnTheAirShows,
@@ -9,46 +10,63 @@ import {
 import { connect } from 'react-redux';
 import '../styles/poster.css';
 import Carousel from './Carousel';
-import Navbar from './Navbar';
 
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
 
 class Shows extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchPopularShows();
     this.props.fetchOnTheAirShows();
     this.props.fetchTopRatedShows();
   }
   render() {
-    console.log(this.props.shows.popularShows);
-    if (this.props.shows.popularShows.length > 0) {
+    console.log(this.props.shows);
+    if (
+      this.props.shows.popularShows.length > 0 &&
+      this.props.shows.ratedShows.length > 0 &&
+      this.props.shows.onTheAirShows.length > 0
+    ) {
       return (
         <React.Fragment>
           <section className="landing-page">
-            <Navbar />
-            <section
-              className="backdrop"
-              style={{
-                backgroundImage: `url(
+            <Link to={`show/details/${this.props.shows.popularShows[0].id}`}>
+              <section
+                className="backdrop"
+                style={{
+                  backgroundImage: `url(
                 ${baseImageURLBackdrop}${
-                  this.props.shows.popularShows[0].backdrop_path
-                }
+                    this.props.shows.popularShows[0].backdrop_path
+                  }
               )`
-              }}
-            >
-              <div className="backdrop-layer_top backdrop-grid">
-                <div className="backdrop-details">
-                  <h2>MOST POPULAR</h2>
-                  <h1>{this.props.shows.popularShows[0].name}</h1>
-                  <h2>
-                    Rating: {this.props.shows.popularShows[0].vote_average}
-                  </h2>
+                }}
+              >
+                <div className="backdrop-layer_top backdrop-grid">
+                  <div className="backdrop-details">
+                    <h2>MOST POPULAR</h2>
+                    <h1>{this.props.shows.popularShows[0].name}</h1>
+                    <h2>
+                      Rating: {this.props.shows.popularShows[0].vote_average}
+                    </h2>
+                  </div>
                 </div>
-              </div>
-            </section>
+              </section>
+            </Link>
           </section>
           <section className="container">
+            <form className="row">
+              <input
+                className="button"
+                onChange={this.handleSearchinput}
+                type="text"
+                aria-label="Search"
+                placeholder="Search..."
+              />
+              <button type="button" className="button">
+                Search
+              </button>
+            </form>
+
             <div className="row">
               <button
                 type="button"

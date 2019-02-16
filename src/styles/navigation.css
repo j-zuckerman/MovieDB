@@ -1,16 +1,21 @@
 .main-nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-
-.logo {
-  justify-self: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 90px 1fr 90px;
+      grid-template-columns: 90px 1fr 90px;
+  -ms-grid-rows: 55px;
+      grid-template-rows: 55px;
+  justify-items: center;
+  top: 0;
 }
 
 .search-bar {
-  width: 30%;
-  justify-self: flex-end;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  outline: none;
 }
 /*# sourceMappingURL=navigation.css.map */

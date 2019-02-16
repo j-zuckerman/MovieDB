@@ -73,6 +73,13 @@ export const fetchSimilarShows = id => async dispatch => {
   dispatch({ type: 'FETCH_SIMILAR_SHOWS', payload: response.data.results });
 };
 
+export const fetchSearchResults = searchValue => async dispatch => {
+  const response = await movieDbAPI.get(
+    `search/multi?api_key=${apiKey}&language=en-US&query=${searchValue}&page=1`
+  );
+  dispatch({ type: 'FETCH_SEARCH_RESULTS', payload: response.data.results });
+};
+
 export const changeToMovieDisplay = () => {
   return { type: 'CHANGE_TO_MOVIE_DISPLAY' };
 };

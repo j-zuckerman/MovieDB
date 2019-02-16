@@ -9,6 +9,7 @@ const initialState = {
   similiarShows: [],
   movieDetails: null,
   showDetails: null,
+  searchResults: null,
   onMovieDisplay: true
 };
 
@@ -40,6 +41,8 @@ export default (state = initialState, action) => {
       return { ...state, showDetails: action.payload };
     case 'FETCH_SIMILAR_SHOWS':
       return { ...state, similarShows: action.payload };
+    case 'FETCH_SEARCH_RESULTS':
+      return { ...state, searchResults: action.payload };
     case 'CHANGE_TO_MOVIE_DISPLAY':
       return { ...state, onMovieDisplay: true };
     case 'CHANGE_TO_SHOW_DISPLAY':
