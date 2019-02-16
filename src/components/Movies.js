@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import '../styles/poster.css';
 import '../styles/backdrop.css';
 import Carousel from './Carousel';
+import Navbar from './Navbar';
 
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
@@ -25,25 +26,28 @@ class Movies extends Component {
     if (this.props.movie.popularMovies.length > 0) {
       return (
         <React.Fragment>
-          <section
-            className="backdrop"
-            style={{
-              backgroundImage: `url(
+          <section className="landing-page">
+            <Navbar />
+            <section
+              className="backdrop"
+              style={{
+                backgroundImage: `url(
                 ${baseImageURLBackdrop}${
-                this.props.movie.popularMovies[0].backdrop_path
-              }
+                  this.props.movie.popularMovies[0].backdrop_path
+                }
               )`
-            }}
-          >
-            <div className="backdrop-layer_top backdrop-grid">
-              <div className="backdrop-details">
-                <h2>MOST POPULAR</h2>
-                <h1>{this.props.movie.popularMovies[0].title}</h1>
-                <h2>
-                  Rating: {this.props.movie.popularMovies[0].vote_average}
-                </h2>
+              }}
+            >
+              <div className="backdrop-layer_top backdrop-grid">
+                <div className="backdrop-details">
+                  <h2>MOST POPULAR</h2>
+                  <h1>{this.props.movie.popularMovies[0].title}</h1>
+                  <h2>
+                    Rating: {this.props.movie.popularMovies[0].vote_average}
+                  </h2>
+                </div>
               </div>
-            </div>
+            </section>
           </section>
           <section className="container">
             <div className="row">

@@ -7,7 +7,8 @@ const initialState = {
   ratedShows: [],
   popularShows: [],
   similiarShows: [],
-  details: null,
+  movieDetails: null,
+  showDetails: null,
   onMovieDisplay: true
 };
 
@@ -34,9 +35,9 @@ export default (state = initialState, action) => {
     case 'POPULAR_SHOWS':
       return { ...state, popularShows: action.payload };
     case 'FETCH_MOVIE':
-      return { ...state, details: action.payload };
+      return { ...state, movieDetails: action.payload };
     case 'FETCH_SHOW':
-      return { ...state, details: action.payload };
+      return { ...state, showDetails: action.payload };
     case 'FETCH_SIMILAR_SHOWS':
       return { ...state, similarShows: action.payload };
     case 'CHANGE_TO_MOVIE_DISPLAY':

@@ -1,0 +1,16 @@
+.main-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.logo {
+  justify-self: flex-start;
+}
+
+.search-bar {
+  width: 30%;
+  justify-self: flex-end;
+}
+/*# sourceMappingURL=navigation.css.map */

@@ -1,6 +1,9 @@
+.landing-page {
+  height: 100vh;
+}
 .backdrop {
   width: 100%;
-  height: 720px;
+  height: 100%;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -27,7 +30,7 @@
 .backdrop-grid {
   display: grid;
   grid-template-columns: 40% auto;
-  grid-template-rows: 60% auto;
+  grid-template-rows: 50% auto;
 }
 
 .backdrop-details {
@@ -46,7 +49,9 @@ h1 {
   display: flex;
   justify-items: center;
 }
-
+.container {
+  margin-top: 125px;
+}
 .button {
   background: none;
   border: none;

@@ -43,7 +43,10 @@ class MovieDetails extends Component {
 }
 
 const mapStateToProps = state => {
-  return { detail: state.movie.details, similar: state.movie.similarMovies };
+  return {
+    detail: state.movie.movieDetails,
+    similar: state.movie.similarMovies
+  };
 };
 export default connect(
   mapStateToProps,

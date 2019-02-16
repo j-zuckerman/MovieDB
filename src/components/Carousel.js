@@ -29,88 +29,102 @@ class Carousel extends Component {
         <div className="carousel-inner">
           <div className="carousel-item active">
             <div className="row">
-              {this.props.data
-                .filter((el, index) => index < 5)
-                .map(el => (
-                  <Link to={this.state.detailLink + el.id}>
-                    <div className="hvrbox poster">
-                      <img
-                        key={el.id}
-                        className="hvrbox-layer_bottom"
-                        src={`${baseImageURLPoster}${el.poster_path}`}
-                        alt="First slide"
-                      />
-                      <div className="hvrbox-layer_top ">
-                        <div className="hvrbox-text">
-                          Rating: {el.vote_average}
+              {this.props.data.length <= 0
+                ? ''
+                : this.props.data
+                    .filter((el, index) => index < 5)
+                    .map(el => (
+                      <Link to={this.state.detailLink + el.id}>
+                        <div className="hvrbox poster">
+                          <img
+                            key={el.id}
+                            className="hvrbox-layer_bottom"
+                            src={`${baseImageURLPoster}${el.poster_path}`}
+                            alt="First slide"
+                          />
+                          <div className="hvrbox-layer_top ">
+                            <div className="hvrbox-text">
+                              Rating: {el.vote_average}
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
+                      </Link>
+                    ))}
             </div>
           </div>
           <div className="carousel-item">
             <div className="row">
-              {this.props.data
-                .filter((el, index) => index < 10 && index > 4)
-                .map(el => (
-                  <div className="hvrbox poster">
-                    <img
-                      key={el.id}
-                      className="hvrbox-layer_bottom"
-                      src={`${baseImageURLPoster}${el.poster_path}`}
-                      alt="First slide"
-                    />
-                    <div className="hvrbox-layer_top">
-                      <div className="hvrbox-text">
-                        Rating: {el.vote_average}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              {this.props.data.length <= 0
+                ? ''
+                : this.props.data
+                    .filter((el, index) => index < 10 && index > 4)
+                    .map(el => (
+                      <Link to={this.state.detailLink + el.id}>
+                        <div className="hvrbox poster">
+                          <img
+                            key={el.id}
+                            className="hvrbox-layer_bottom"
+                            src={`${baseImageURLPoster}${el.poster_path}`}
+                            alt="First slide"
+                          />
+                          <div className="hvrbox-layer_top">
+                            <div className="hvrbox-text">
+                              Rating: {el.vote_average}
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
             </div>
           </div>
           <div className="carousel-item">
             <div className="row">
-              {this.props.data
-                .filter((el, index) => index < 15 && index > 9)
-                .map(el => (
-                  <div className="hvrbox poster">
-                    <img
-                      key={el.id}
-                      className="hvrbox-layer_bottom"
-                      src={`${baseImageURLPoster}${el.poster_path}`}
-                      alt="First slide"
-                    />
-                    <div className="hvrbox-layer_top">
-                      <div className="hvrbox-text">
-                        Rating: {el.vote_average}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              {this.props.data.length <= 0
+                ? ''
+                : this.props.data
+                    .filter((el, index) => index < 15 && index > 9)
+                    .map(el => (
+                      <Link to={this.state.detailLink + el.id}>
+                        <div className="hvrbox poster">
+                          <img
+                            key={el.id}
+                            className="hvrbox-layer_bottom"
+                            src={`${baseImageURLPoster}${el.poster_path}`}
+                            alt="First slide"
+                          />
+                          <div className="hvrbox-layer_top">
+                            <div className="hvrbox-text">
+                              Rating: {el.vote_average}
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
             </div>
           </div>
           <div className="carousel-item">
             <div className="row">
-              {this.props.data
-                .filter((el, index) => index < 20 && index > 14)
-                .map(el => (
-                  <div className="hvrbox poster">
-                    <img
-                      key={el.id}
-                      className="hvrbox-layer_bottom"
-                      src={`${baseImageURLPoster}${el.poster_path}`}
-                      alt="First slide"
-                    />
-                    <div className="hvrbox-layer_top">
-                      <div className="hvrbox-text">
-                        Rating: {el.vote_average}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              {this.props.data.length <= 0
+                ? ''
+                : this.props.data
+                    .filter((el, index) => index < 20 && index > 14)
+                    .map(el => (
+                      <Link to={this.state.detailLink + el.id}>
+                        <div className="hvrbox poster">
+                          <img
+                            key={el.id}
+                            className="hvrbox-layer_bottom"
+                            src={`${baseImageURLPoster}${el.poster_path}`}
+                            alt="First slide"
+                          />
+                          <div className="hvrbox-layer_top">
+                            <div className="hvrbox-text">
+                              Rating: {el.vote_average}
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
             </div>
           </div>
         </div>

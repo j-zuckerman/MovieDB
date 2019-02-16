@@ -1,37 +1,42 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
+import '../styles/navigation.css';
 class Navbar extends Component {
+  state = {
+    searchValue: ''
+  };
+
+  handleSearchinput = e => {
+    this.setState({
+      searchValue: e.target.value
+    });
+  };
+
   render() {
     return (
-      <nav className="navbar navbar-expand-lg">
-        <a className="navbar-brand" href="#">
+      <nav className="main-nav">
+        <Link to="/">
           <img
             src={process.env.PUBLIC_URL + `MovieDBLogo.png`}
-            width="75"
-            height="75"
+            width="70"
+            height="70"
+            className="logo"
           />
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon" />
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
-            <a className="nav-item nav-link active" href="#">
-              Movies <span className="sr-only">(current)</span>
-            </a>
-            <a className="nav-item nav-link" href="#">
-              TV Shows
-            </a>
-          </div>
-        </div>
+        </Link>
+        <form className="form-inline search-bar">
+          <input
+            className="form-control mr-sm-2"
+            onChange={this.handleSearchinput}
+            type="text"
+            aria-label="Search"
+            placeholder="Search.."
+          />
+          <Link to="/">
+            <button className="btn btn-outline-success my-2 my-sm-0">
+              Search
+            </button>
+          </Link>
+        </form>
       </nav>
     );
   }
