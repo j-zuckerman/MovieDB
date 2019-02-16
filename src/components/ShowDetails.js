@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchShowDetails, fetchSimilarShows } from '../actions';
 import Carousel from './Carousel';
+import { Link } from 'react-router-dom';
 
-const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
-const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
+import '../styles/backdrop.css';
+import '../styles/details.css';
+
+const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w780/';
 
 class ShowDetails extends Component {
   componentWillMount() {
@@ -15,18 +18,21 @@ class ShowDetails extends Component {
     console.log(this.props.similar);
     if (this.props.detail !== null && this.props.similar !== null) {
       return (
-        <section className="details-backdrop">
-          <img
-            src={`${baseImageURLBackdrop}${this.props.detail.backdrop_path}`}
-          />
-          <div className="container">
-            <h1>{this.props.detail.title} </h1>
-            <h2>{this.props.detail.adult} </h2>
-            <h2>{this.props.detail.runtime} </h2>
-            <h2>{this.props.detail.release_date} </h2>
-            <h2>{this.props.detail.tagline} </h2>
-            <h2>{this.props.detail.vote_average} </h2>
+        <div className="container">
+          <section className="details">
+            <img
+              src={`${baseImageURLBackdrop}${this.props.detail.backdrop_path}`}
+            />
+            <h1>{this.props.detail.name} </h1>
+            <h2>Rating: {this.props.detail.vote_average} </h2>
+            <br />
+            <h2>{this.props.detail.overview} </h2>
+            <br />
 
+            <h2>First Air Date: {this.props.detail.first_air_date} </h2>
+            <Link to="/">
+              <button className="button">Go Back</button>
+            </Link>
             <h1>Similiar Shows</h1>
             <div className="row">
               <Carousel
@@ -35,8 +41,8 @@ class ShowDetails extends Component {
                 type={'SHOWS'}
               />
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       );
     } else return null;
   }

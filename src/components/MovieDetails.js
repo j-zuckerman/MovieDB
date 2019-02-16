@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchMovieDetails, fetchSimilarMovies } from '../actions';
 import Carousel from './Carousel';
+import { Link } from 'react-router-dom';
 
-const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
-const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
+import '../styles/backdrop.css';
+import '../styles/details.css';
+
+const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w780/';
 
 class MovieDetails extends Component {
   componentWillMount() {
@@ -15,17 +18,22 @@ class MovieDetails extends Component {
     console.log(this.props.similar);
     if (this.props.detail !== null && this.props.similar !== null) {
       return (
-        <section className="details-backdrop">
-          <img
-            src={`${baseImageURLBackdrop}${this.props.detail.backdrop_path}`}
-          />
-          <div className="container">
+        <div className="container">
+          <section className="details">
+            <img
+              src={`${baseImageURLBackdrop}${this.props.detail.backdrop_path}`}
+            />
             <h1>{this.props.detail.title} </h1>
-            <h2>{this.props.detail.adult} </h2>
-            <h2>{this.props.detail.runtime} </h2>
-            <h2>{this.props.detail.release_date} </h2>
-            <h2>{this.props.detail.tagline} </h2>
-            <h2>{this.props.detail.vote_average} </h2>
+            <h2>Rating: {this.props.detail.vote_average} </h2>
+            <br />
+            <h2>{this.props.detail.overview} </h2>
+            <br />
+            <h2>Length: {this.props.detail.runtime} minutes </h2>
+            <h2>Release Date: {this.props.detail.release_date} </h2>
+
+            <Link to="/">
+              <button className="button">Go Back</button>
+            </Link>
 
             <h1>Similiar Movies</h1>
             <div className="row">
@@ -35,8 +43,8 @@ class MovieDetails extends Component {
                 type={'MOVIES'}
               />
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       );
     } else return null;
   }

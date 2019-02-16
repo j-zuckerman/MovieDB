@@ -15,6 +15,15 @@ const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
 
 class Shows extends Component {
+  state = {
+    searchValue: ''
+  };
+
+  handleSearchinput = e => {
+    this.setState({
+      searchValue: e.target.value
+    });
+  };
   componentWillMount() {
     this.props.fetchPopularShows();
     this.props.fetchOnTheAirShows();
@@ -62,11 +71,18 @@ class Shows extends Component {
                 aria-label="Search"
                 placeholder="Search..."
               />
-              <button type="button" className="button">
+              <Link
+                to={`/search/results/${this.state.searchValue}`}
+                className="button"
+                style={{
+                  textAlign: 'center',
+                  lineHeight: '75px',
+                  textDecoration: 'none'
+                }}
+              >
                 Search
-              </button>
+              </Link>
             </form>
-
             <div className="row">
               <button
                 type="button"

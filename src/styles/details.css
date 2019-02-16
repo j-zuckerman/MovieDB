@@ -5,4 +5,14 @@
   background-position: center center;
   background-repeat: no-repeat;
 }
+
+.details h1 {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.details .button {
+  margin-top: 55px;
+}
 /*# sourceMappingURL=details.css.map */

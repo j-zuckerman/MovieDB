@@ -42,6 +42,10 @@ class SearchResults extends Component {
                   </div>
                 ))}
             </div>
+
+            <Link to="/">
+              <button className="button">Go Back</button>
+            </Link>
           </section>
         </React.Fragment>
       );
