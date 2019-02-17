@@ -41,7 +41,10 @@ class Movies extends Component {
       return (
         <React.Fragment>
           <section className="landing-page">
-            <Link to={`movie/details/${this.props.movie.popularMovies[0].id}`}>
+            <Link
+              to={`movie/details/${this.props.movie.popularMovies[0].id}`}
+              style={{ textDecoration: 'none' }}
+            >
               <section
                 className="backdrop"
                 style={{
@@ -79,7 +82,8 @@ class Movies extends Component {
                 style={{
                   textAlign: 'center',
                   lineHeight: '75px',
-                  textDecoration: 'none'
+                  textDecoration: 'none',
+                  color: 'white'
                 }}
               >
                 Search

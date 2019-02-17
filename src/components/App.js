@@ -4,13 +4,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MovieDetails from './MovieDetails';
 import ShowDetails from './ShowDetails';
 import SearchResults from './SearchResults';
+import Footer from './Footer';
 import '../styles/home.css';
 
 class App extends Component {
   render() {
     return (
-      <React.Fragment>
-        <Router>
+      <Router basename="/MovieDB">
+        <React.Fragment>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/movie/details/:id" component={MovieDetails} />
@@ -21,8 +22,9 @@ class App extends Component {
               component={SearchResults}
             />
           </Switch>
-        </Router>
-      </React.Fragment>
+          <Footer />
+        </React.Fragment>
+      </Router>
     );
   }
 }
