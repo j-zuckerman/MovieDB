@@ -39,7 +39,10 @@ class Shows extends Component {
       return (
         <React.Fragment>
           <section className="landing-page">
-            <Link to={`show/details/${this.props.shows.popularShows[0].id}`}>
+            <Link
+              to={`show/details/${this.props.shows.popularShows[0].id}`}
+              style={{ textDecoration: 'none' }}
+            >
               <section
                 className="backdrop"
                 style={{

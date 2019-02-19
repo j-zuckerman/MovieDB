@@ -10,9 +10,17 @@ import '../styles/details.css';
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w780/';
 
 class ShowDetails extends Component {
-  componentWillMount() {
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.fetch();
+    }
+  }
+  fetch = () => {
     this.props.fetchShowDetails(this.props.match.params.id);
     this.props.fetchSimilarShows(this.props.match.params.id);
+  };
+  componentWillMount() {
+    this.fetch();
   }
   render() {
     console.log(this.props.similar);
@@ -30,8 +38,8 @@ class ShowDetails extends Component {
             <br />
 
             <h2>First Air Date: {this.props.detail.first_air_date} </h2>
-            <Link to="/">
-              <button className="button">Go Back</button>
+            <Link to="/" className="link">
+              Go Back
             </Link>
             <h1>Similiar Shows</h1>
             <div className="row">

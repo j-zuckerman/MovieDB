@@ -10,9 +10,17 @@ import '../styles/details.css';
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w780/';
 
 class MovieDetails extends Component {
-  componentWillMount() {
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.fetch();
+    }
+  }
+  fetch = () => {
     this.props.fetchMovieDetails(this.props.match.params.id);
     this.props.fetchSimilarMovies(this.props.match.params.id);
+  };
+  componentWillMount() {
+    this.fetch();
   }
   render() {
     console.log(this.props.similar);
@@ -31,8 +39,8 @@ class MovieDetails extends Component {
             <h2>Length: {this.props.detail.runtime} minutes </h2>
             <h2>Release Date: {this.props.detail.release_date} </h2>
 
-            <Link to="/">
-              <button className="button">Go Back</button>
+            <Link to="/" className="link">
+              Go Back
             </Link>
 
             <h1>Similiar Movies</h1>

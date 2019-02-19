@@ -78,13 +78,7 @@ class Movies extends Component {
               />
               <Link
                 to={`/search/results/${this.state.searchValue}`}
-                className="button"
-                style={{
-                  textAlign: 'center',
-                  lineHeight: '75px',
-                  textDecoration: 'none',
-                  color: 'white'
-                }}
+                className="link"
               >
                 Search
               </Link>
