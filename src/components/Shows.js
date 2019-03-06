@@ -10,27 +10,18 @@ import {
 import { connect } from 'react-redux';
 import '../styles/poster.css';
 import Carousel from './Carousel';
+import SearchBar from './SearchBar';
 
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
 
 class Shows extends Component {
-  state = {
-    searchValue: ''
-  };
-
-  handleSearchinput = e => {
-    this.setState({
-      searchValue: e.target.value
-    });
-  };
   componentWillMount() {
     this.props.fetchPopularShows();
     this.props.fetchOnTheAirShows();
     this.props.fetchTopRatedShows();
   }
   render() {
-    console.log(this.props.shows);
     if (
       this.props.shows.popularShows.length > 0 &&
       this.props.shows.ratedShows.length > 0 &&
@@ -66,26 +57,7 @@ class Shows extends Component {
             </Link>
           </section>
           <section className="container">
-            <form className="row">
-              <input
-                className="button"
-                onChange={this.handleSearchinput}
-                type="text"
-                aria-label="Search"
-                placeholder="Search..."
-              />
-              <Link
-                to={`/search/results/${this.state.searchValue}`}
-                className="button"
-                style={{
-                  textAlign: 'center',
-                  lineHeight: '75px',
-                  textDecoration: 'none'
-                }}
-              >
-                Search
-              </Link>
-            </form>
+            <SearchBar />
             <div className="row">
               <button
                 type="button"

@@ -1,0 +1,41 @@
+.search-wrapper {
+  position: relative;
+}
+.dropdown {
+  position: absolute;
+}
+
+.autosuggest,
+.dropdown,
+.result {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 50%;
+  background-color: white;
+  z-index: 100;
+  font-size: 25px;
+  color: black;
+}
+
+.autosuggest {
+  padding: 4px;
+  border: 1px solid #000;
+}
+
+.result {
+  width: 100%;
+  list-style: none;
+}
+
+.result li {
+  padding: 5px;
+  border: 1px solid #000;
+  border-top: 0;
+  cursor: pointer;
+}
+
+.result li:hover {
+  background: #333;
+  color: #fff;
+}

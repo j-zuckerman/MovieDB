@@ -18,7 +18,6 @@ class Carousel extends Component {
       this.setState({ detailLink: '/show/details/' });
   }
   render() {
-    console.log(this.props.data);
     if (this.props.data !== undefined) {
       return (
         <div

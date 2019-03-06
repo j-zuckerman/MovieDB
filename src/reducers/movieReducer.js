@@ -9,6 +9,7 @@ const initialState = {
   similiarShows: [],
   movieDetails: null,
   showDetails: null,
+  searchValue: null,
   searchResults: null,
   onMovieDisplay: true
 };
