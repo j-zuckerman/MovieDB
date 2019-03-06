@@ -11,7 +11,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  width: 50%;
+  width: 45%;
   background-color: white;
   z-index: 100;
   font-size: 25px;
@@ -38,4 +38,9 @@
 .result li:hover {
   background: #333;
   color: #fff;
+}
+.search-link,
+.search-link:hover {
+  text-decoration: none;
+  color: black;
 }

@@ -5,9 +5,15 @@ import '../styles/poster.css';
 import '../styles/searchbar.css';
 import { connect } from 'react-redux';
 
+const baseImageURLPoster = 'https://image.tmdb.org/t/p/w92/';
+
 class SearchBar extends Component {
+  state = {
+    searchValue: ''
+  };
   handleSearchinput = e => {
     this.props.fetchSearchResults(e.target.value);
+    this.setState({ searchValue: e.target.value });
   };
   render() {
     console.log(this.props);
@@ -22,13 +28,8 @@ class SearchBar extends Component {
             placeholder="Search..."
           />
           <Link
-            to={`/search/results/${this.props.search}`}
-            className="button"
-            style={{
-              textAlign: 'center',
-              lineHeight: '75px',
-              textDecoration: 'none'
-            }}
+            to={`/search/results/${this.state.searchValue}`}
+            className="link"
           >
             Search
           </Link>
@@ -41,10 +42,20 @@ class SearchBar extends Component {
                   .filter(
                     el => el.media_type === 'tv' || el.media_type === 'movie'
                   )
+                  .filter((el, index) => index < 5)
                   .map((el, index) => (
-                    <li key={el.id}>
-                      {el.media_type === 'tv' ? el.name : el.title}
-                    </li>
+                    <Link
+                      className="search-link"
+                      to={el.media_type + '/details/' + el.id}
+                    >
+                      <li key={el.id}>
+                        <img
+                          src={`${baseImageURLPoster}${el.poster_path}`}
+                          alt="poster"
+                        />
+                        {el.media_type === 'tv' ? el.name : el.title}
+                      </li>
+                    </Link>
                   ))}
           </ul>
         </div>

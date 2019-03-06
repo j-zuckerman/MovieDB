@@ -11,6 +11,7 @@ import '../styles/poster.css';
 import '../styles/backdrop.css';
 import Carousel from './Carousel';
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
@@ -68,22 +69,7 @@ class Movies extends Component {
             </Link>
           </section>
           <section className="container">
-            <form className="row">
-              <input
-                className="button"
-                onChange={this.handleSearchinput}
-                type="text"
-                aria-label="Search"
-                placeholder="Search..."
-              />
-              <Link
-                to={`/search/results/${this.state.searchValue}`}
-                className="link"
-              >
-                Search
-              </Link>
-            </form>
-
+            <SearchBar />
             <div className="row">
               <button
                 type="button"

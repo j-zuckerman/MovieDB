@@ -15,7 +15,7 @@ class Carousel extends Component {
     if (this.props.type === 'MOVIES') {
       this.setState({ detailLink: '/movie/details/' });
     } else if (this.props.type === 'SHOWS')
-      this.setState({ detailLink: '/show/details/' });
+      this.setState({ detailLink: '/tv/details/' });
   }
   render() {
     if (this.props.data !== undefined) {

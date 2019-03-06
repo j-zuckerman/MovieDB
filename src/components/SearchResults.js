@@ -27,24 +27,26 @@ class SearchResults extends Component {
                   el => el.media_type === 'tv' || el.media_type === 'movie'
                 )
                 .map((el, index) => (
-                  <div className="hvrbox poster">
-                    <img
-                      key={el.id}
-                      className="hvrbox-layer_bottom"
-                      src={`${baseImageURLPoster}${el.poster_path}`}
-                      alt="First slide"
-                    />
-                    <div className="hvrbox-layer_top ">
-                      <div className="hvrbox-text">
-                        Rating: {el.vote_average}
+                  <Link to={'/' + el.media_type + '/details/' + el.id}>
+                    <div className="hvrbox poster">
+                      <img
+                        key={el.id}
+                        className="hvrbox-layer_bottom"
+                        src={`${baseImageURLPoster}${el.poster_path}`}
+                        alt="First slide"
+                      />
+                      <div className="hvrbox-layer_top ">
+                        <div className="hvrbox-text">
+                          Rating: {el.vote_average}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
             </div>
 
-            <Link to="/">
-              <button className="button">Go Back</button>
+            <Link to="/" className="link">
+              Go Back
             </Link>
           </section>
         </React.Fragment>

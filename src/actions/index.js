@@ -74,10 +74,14 @@ export const fetchSimilarShows = id => async dispatch => {
 };
 
 export const fetchSearchResults = searchValue => async dispatch => {
-  const response = await movieDbAPI.get(
-    `search/multi?api_key=${apiKey}&language=en-US&query=${searchValue}&page=1`
-  );
-  dispatch({ type: 'FETCH_SEARCH_RESULTS', payload: response.data.results });
+  if (searchValue.length > 1) {
+    const response = await movieDbAPI.get(
+      `search/multi?api_key=${apiKey}&language=en-US&query=${searchValue}&page=1`
+    );
+    dispatch({ type: 'FETCH_SEARCH_RESULTS', payload: response.data.results });
+  } else {
+    dispatch({ type: 'FETCH_SEARCH_RESULTS', payload: null });
+  }
 };
 
 export const changeToMovieDisplay = () => {
