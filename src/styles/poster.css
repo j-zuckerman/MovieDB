@@ -78,4 +78,8 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+h1 {
+  margin-top: 35px;
+}
 /*# sourceMappingURL=poster.css.map */

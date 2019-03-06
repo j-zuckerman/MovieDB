@@ -17,6 +17,25 @@ class Carousel extends Component {
     } else if (this.props.type === 'SHOWS')
       this.setState({ detailLink: '/tv/details/' });
   }
+
+  createStarRating = rating => {
+    let numOfCheckedStars = Math.round(rating / 2);
+    let numOfUncheckedStars = 5 - numOfCheckedStars;
+    let checkedStars = [];
+    let uncheckedStars = [];
+    let stars = [];
+    for (let i = 0; i < numOfCheckedStars; i++) {
+      checkedStars.push(<span class="fas fa-star" />);
+    }
+    for (let i = 0; i < numOfUncheckedStars; i++) {
+      checkedStars.push(<span class="far fa-star" />);
+    }
+
+    stars.push(checkedStars);
+    stars.push(uncheckedStars);
+    return <div>{stars} </div>;
+  };
+
   render() {
     if (this.props.data !== undefined) {
       return (
@@ -44,7 +63,7 @@ class Carousel extends Component {
                             />
                             <div className="hvrbox-layer_top ">
                               <div className="hvrbox-text">
-                                Rating: {el.vote_average}
+                                {this.createStarRating(el.vote_average)}
                               </div>
                             </div>
                           </div>
@@ -69,7 +88,7 @@ class Carousel extends Component {
                             />
                             <div className="hvrbox-layer_top">
                               <div className="hvrbox-text">
-                                Rating: {el.vote_average}
+                                {this.createStarRating(el.vote_average)}
                               </div>
                             </div>
                           </div>
@@ -94,7 +113,7 @@ class Carousel extends Component {
                             />
                             <div className="hvrbox-layer_top">
                               <div className="hvrbox-text">
-                                Rating: {el.vote_average}
+                                {this.createStarRating(el.vote_average)}
                               </div>
                             </div>
                           </div>
@@ -119,7 +138,7 @@ class Carousel extends Component {
                             />
                             <div className="hvrbox-layer_top">
                               <div className="hvrbox-text">
-                                Rating: {el.vote_average}
+                                {this.createStarRating(el.vote_average)}
                               </div>
                             </div>
                           </div>
