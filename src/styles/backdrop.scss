@@ -1,5 +1,24 @@
+$mobile: 450px;
+$tablet: 1100px;
+@mixin mobile {
+  @media (max-width: #{$mobile} ) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: #{$tablet} ) {
+    @content;
+  }
+}
+
 .landing-page {
   height: 100vh;
+  @include mobile {
+    height: 70vh;
+  }
+  @include tablet {
+    height: 80vh;
+  }
 }
 .backdrop {
   width: 100%;
@@ -109,6 +128,9 @@ h1 {
   width: 45%;
   height: 75px;
   margin: 15px;
+  @include mobile {
+    width: 40%;
+  }
 }
 .link,
 .link:hover {
@@ -172,4 +194,7 @@ h1 {
   line-height: 75px;
   text-decoration: none;
   color: white;
+  @include mobile {
+    width: 40%;
+  }
 }

@@ -1,5 +1,25 @@
+$mobile: 450px;
+$tablet: 1100px;
+@mixin mobile {
+  @media (max-width: #{$mobile} ) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet} ) {
+    @content;
+  }
+}
+
 .poster {
   margin: 10px 10px 10px 10px;
+  @include mobile {
+    margin: 5px 5px 5px 5px;
+  }
+  @include tablet {
+    margin: 8px 8px 8px 8px;
+  }
 }
 
 .hvrbox-text {
@@ -38,6 +58,14 @@
 }
 .hvrbox .hvrbox-layer_bottom {
   display: block;
+  height: 300px;
+
+  @include mobile {
+    height: 100px;
+  }
+  @include tablet {
+    height: 180px;
+  }
 }
 .hvrbox .hvrbox-layer_top {
   opacity: 0;

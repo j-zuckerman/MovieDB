@@ -1,3 +1,18 @@
+$mobile: 450px;
+$tablet: 1100px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile} ) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet} ) {
+    @content;
+  }
+}
+
 #PopularMovies,
 #TopRatedMovies,
 #LatestMovies,
@@ -9,8 +24,20 @@
   margin: 20px;
 }
 .carousel-control-prev {
+  @include mobile {
+    margin-left: -40px;
+  }
+  @include tablet {
+    margin-left: -75px;
+  }
   margin-left: -125px;
 }
 .carousel-control-next {
+  @include mobile {
+    margin-right: -35px;
+  }
+  @include tablet {
+    margin-right: -50px;
+  }
   margin-right: -75px;
 }

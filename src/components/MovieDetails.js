@@ -30,6 +30,7 @@ class MovieDetails extends Component {
           <section className="details">
             <img
               src={`${baseImageURLBackdrop}${this.props.detail.backdrop_path}`}
+              className="banner"
             />
             <div className="row">
               <h1>{this.props.detail.title}</h1>
