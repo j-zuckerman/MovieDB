@@ -13,9 +13,6 @@ $tablet: 1100px;
 
 .landing-page {
   height: 100vh;
-  @include mobile {
-    height: 70vh;
-  }
   @include tablet {
     height: 80vh;
   }

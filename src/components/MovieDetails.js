@@ -56,7 +56,7 @@ class MovieDetails extends Component {
             <h2>Length: {this.props.detail.runtime} minutes </h2>
             <h2>Release Date: {this.props.detail.release_date} </h2>
 
-            <Link to="/" className="link">
+            <Link to="/" className="link back-btn">
               Go Back
             </Link>
 

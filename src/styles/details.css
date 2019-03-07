@@ -10,15 +10,21 @@
   width: 800px;
 }
 
+@media (max-width: 1100px) {
+  .banner {
+    width: 700px;
+  }
+}
+
 @media (max-width: 450px) {
   .banner {
-    width: 380px;
+    width: 350px;
   }
 }
 
 @media (max-width: 1100px) {
-  .banner {
-    width: 700px;
+  .back-btn {
+    width: 65%;
   }
 }
 

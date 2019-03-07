@@ -31,7 +31,7 @@ class Shows extends Component {
         <React.Fragment>
           <section className="landing-page">
             <Link
-              to={`show/details/${this.props.shows.popularShows[0].id}`}
+              to={`tv/details/${this.props.shows.popularShows[0].id}`}
               style={{ textDecoration: 'none' }}
             >
               <section

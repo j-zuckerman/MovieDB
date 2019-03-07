@@ -12,16 +12,6 @@ $tablet: 1100px;
   }
 }
 
-.poster {
-  margin: 10px 10px 10px 10px;
-  @include mobile {
-    margin: 5px 5px 5px 5px;
-  }
-  @include tablet {
-    margin: 8px 8px 8px 8px;
-  }
-}
-
 .hvrbox-text {
   text-align: center;
   font-size: 18px;
@@ -60,11 +50,11 @@ $tablet: 1100px;
   display: block;
   height: 300px;
 
-  @include mobile {
-    height: 100px;
-  }
   @include tablet {
     height: 180px;
+  }
+  @include mobile {
+    height: 100px;
   }
 }
 .hvrbox .hvrbox-layer_top {

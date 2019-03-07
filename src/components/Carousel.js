@@ -12,12 +12,14 @@ class Carousel extends Component {
     };
   }
   componentDidMount() {
+    // get link
     if (this.props.type === 'MOVIES') {
       this.setState({ detailLink: '/movie/details/' });
     } else if (this.props.type === 'SHOWS')
       this.setState({ detailLink: '/tv/details/' });
   }
 
+  //convert decimal rating to a star rating
   createStarRating = rating => {
     let numOfCheckedStars = Math.round(rating / 2);
     let numOfUncheckedStars = 5 - numOfCheckedStars;
@@ -47,11 +49,11 @@ class Carousel extends Component {
         >
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <div className="row">
+              <div className="row carousel-container">
                 {this.props.data.length <= 0
                   ? ''
                   : this.props.data
-                      .filter((el, index) => index < 5)
+                      .filter((el, index) => index < 5) //get first 5
                       .map(el => (
                         <Link to={this.state.detailLink + el.id}>
                           <div className="hvrbox poster">
@@ -59,7 +61,7 @@ class Carousel extends Component {
                               key={el.id}
                               className="hvrbox-layer_bottom"
                               src={`${baseImageURLPoster}${el.poster_path}`}
-                              alt="First slide"
+                              alt="poster"
                             />
                             <div className="hvrbox-layer_top ">
                               <div className="hvrbox-text">
@@ -72,11 +74,11 @@ class Carousel extends Component {
               </div>
             </div>
             <div className="carousel-item">
-              <div className="row">
+              <div className="row carousel-container">
                 {this.props.data.length <= 0
                   ? ''
                   : this.props.data
-                      .filter((el, index) => index < 10 && index > 4)
+                      .filter((el, index) => index < 10 && index > 4) // get 5 - 10
                       .map(el => (
                         <Link to={this.state.detailLink + el.id}>
                           <div className="hvrbox poster">
@@ -84,7 +86,7 @@ class Carousel extends Component {
                               key={el.id}
                               className="hvrbox-layer_bottom"
                               src={`${baseImageURLPoster}${el.poster_path}`}
-                              alt="First slide"
+                              alt="poster"
                             />
                             <div className="hvrbox-layer_top">
                               <div className="hvrbox-text">
@@ -97,11 +99,11 @@ class Carousel extends Component {
               </div>
             </div>
             <div className="carousel-item">
-              <div className="row">
+              <div className="row carousel-container">
                 {this.props.data.length <= 0
                   ? ''
                   : this.props.data
-                      .filter((el, index) => index < 15 && index > 9)
+                      .filter((el, index) => index < 15 && index > 9) //get 10 - 15
                       .map(el => (
                         <Link to={this.state.detailLink + el.id}>
                           <div className="hvrbox poster">
@@ -109,7 +111,7 @@ class Carousel extends Component {
                               key={el.id}
                               className="hvrbox-layer_bottom"
                               src={`${baseImageURLPoster}${el.poster_path}`}
-                              alt="First slide"
+                              alt="poster"
                             />
                             <div className="hvrbox-layer_top">
                               <div className="hvrbox-text">
@@ -122,11 +124,11 @@ class Carousel extends Component {
               </div>
             </div>
             <div className="carousel-item">
-              <div className="row">
+              <div className="row carousel-container">
                 {this.props.data.length <= 0
                   ? ''
                   : this.props.data
-                      .filter((el, index) => index < 20 && index > 14)
+                      .filter((el, index) => index < 20 && index > 14) // get last 5
                       .map(el => (
                         <Link to={this.state.detailLink + el.id}>
                           <div className="hvrbox poster">
@@ -134,7 +136,7 @@ class Carousel extends Component {
                               key={el.id}
                               className="hvrbox-layer_bottom"
                               src={`${baseImageURLPoster}${el.poster_path}`}
-                              alt="First slide"
+                              alt="poster"
                             />
                             <div className="hvrbox-layer_top">
                               <div className="hvrbox-text">

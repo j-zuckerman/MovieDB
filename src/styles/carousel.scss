@@ -1,14 +1,13 @@
 $mobile: 450px;
 $tablet: 1100px;
 
-@mixin mobile {
-  @media (max-width: #{$mobile} ) {
+@mixin tablet {
+  @media (max-width: #{$tablet} ) {
     @content;
   }
 }
-
-@mixin tablet {
-  @media (max-width: #{$tablet} ) {
+@mixin mobile {
+  @media (max-width: #{$mobile} ) {
     @content;
   }
 }
@@ -23,21 +22,26 @@ $tablet: 1100px;
   width: 100%;
   margin: 20px;
 }
+.carousel-container {
+  display: flex;
+  justify-content: space-between;
+}
 .carousel-control-prev {
-  @include mobile {
-    margin-left: -40px;
-  }
+  margin-left: -100px;
   @include tablet {
     margin-left: -75px;
   }
-  margin-left: -125px;
+  @include mobile {
+    margin-left: -40px;
+  }
 }
 .carousel-control-next {
-  @include mobile {
-    margin-right: -35px;
-  }
+  margin-right: -100px;
   @include tablet {
     margin-right: -50px;
   }
-  margin-right: -75px;
+
+  @include mobile {
+    margin-right: -40px;
+  }
 }

@@ -20,14 +20,19 @@ $tablet: 1100px;
 }
 .banner {
   width: 800px;
-  @include mobile {
-    width: 380px;
-  }
   @include tablet {
     width: 700px;
   }
+  @include mobile {
+    width: 350px;
+  }
 }
 
+.back-btn {
+  @include tablet {
+    width: 65%;
+  }
+}
 .details h1 {
   margin-top: 50px;
   margin-bottom: 20px;

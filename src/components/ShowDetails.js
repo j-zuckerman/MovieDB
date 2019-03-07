@@ -31,6 +31,7 @@ class ShowDetails extends Component {
           <section className="details">
             <img
               src={`${baseImageURLBackdrop}${this.props.detail.backdrop_path}`}
+              className="banner"
             />
             <div className="row">
               <h1>{this.props.detail.name}</h1>
@@ -55,7 +56,7 @@ class ShowDetails extends Component {
             <br />
 
             <h2>First Air Date: {this.props.detail.first_air_date} </h2>
-            <Link to="/" className="link">
+            <Link to="/" className="link back-btn">
               Go Back
             </Link>
             <h1>Similiar Shows</h1>
