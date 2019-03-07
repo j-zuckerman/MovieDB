@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import '../styles/backdrop.css';
 import '../styles/details.css';
+import '../styles/circle.css';
 
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w780/';
 
@@ -31,8 +32,24 @@ class ShowDetails extends Component {
             <img
               src={`${baseImageURLBackdrop}${this.props.detail.backdrop_path}`}
             />
-            <h1>{this.props.detail.name} </h1>
-            <h2>Rating: {this.props.detail.vote_average} </h2>
+            <div className="row">
+              <h1>{this.props.detail.name}</h1>
+
+              <div
+                className={`c100 p${Math.round(
+                  this.props.detail.vote_average * 10
+                )} small`}
+                style={{ marginLeft: '30px', marginTop: '30px' }}
+              >
+                <span>
+                  {Math.round(this.props.detail.vote_average * 10) + '%'}
+                </span>
+                <div className="slice">
+                  <div className="bar" />
+                  <div className="fill" />
+                </div>
+              </div>
+            </div>
             <br />
             <h2>{this.props.detail.overview} </h2>
             <br />

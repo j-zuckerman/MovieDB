@@ -12,15 +12,15 @@
   padding: 0;
   border: 0;
   width: 45%;
-  background-color: white;
+  background-color: #2f2f2f;
   z-index: 100;
   font-size: 25px;
-  color: black;
+  color: white;
 }
 
 .autosuggest {
   padding: 4px;
-  border: 1px solid #000;
+  border: 0.5px solid white;
 }
 
 .result {
@@ -30,13 +30,14 @@
 
 .result li {
   padding: 5px;
-  border: 1px solid #000;
+  border: 0.5px solid white;
   border-top: 0;
+  color: white;
   cursor: pointer;
 }
 
 .result li:hover {
-  background: #333;
+  background: rgb(26, 25, 25);
   color: #fff;
 }
 .search-link,

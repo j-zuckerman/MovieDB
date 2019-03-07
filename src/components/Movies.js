@@ -41,13 +41,13 @@ class Movies extends Component {
     ) {
       return (
         <React.Fragment>
-          <section className="landing-page">
+          <section className="landing-page ">
             <Link
               to={`movie/details/${this.props.movie.popularMovies[0].id}`}
               style={{ textDecoration: 'none' }}
             >
               <section
-                className="backdrop"
+                className="backdrop img-fluid"
                 style={{
                   backgroundImage: `url(
                 ${baseImageURLBackdrop}${

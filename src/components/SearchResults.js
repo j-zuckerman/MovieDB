@@ -12,6 +12,25 @@ class SearchResults extends Component {
   componentWillMount() {
     this.props.fetchSearchResults(this.props.match.params.query);
   }
+
+  createStarRating = rating => {
+    let numOfCheckedStars = Math.round(rating / 2);
+    let numOfUncheckedStars = 5 - numOfCheckedStars;
+    let checkedStars = [];
+    let uncheckedStars = [];
+    let stars = [];
+    for (let i = 0; i < numOfCheckedStars; i++) {
+      checkedStars.push(<span class="fas fa-star" />);
+    }
+    for (let i = 0; i < numOfUncheckedStars; i++) {
+      checkedStars.push(<span class="far fa-star" />);
+    }
+
+    stars.push(checkedStars);
+    stars.push(uncheckedStars);
+    return <div>{stars} </div>;
+  };
+
   render() {
     console.log(this.props.results);
     if (this.props.results !== null) {
@@ -37,7 +56,7 @@ class SearchResults extends Component {
                       />
                       <div className="hvrbox-layer_top ">
                         <div className="hvrbox-text">
-                          Rating: {el.vote_average}
+                          {this.createStarRating(el.vote_average)}
                         </div>
                       </div>
                     </div>
