@@ -1,29 +1,43 @@
 import React, { Component } from 'react';
-import Home from './Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MovieDetails from './MovieDetails';
-import ShowDetails from './ShowDetails';
+import Genre from './Genre';
 import SearchResults from './SearchResults';
-import Footer from './Footer';
-import '../styles/home.css';
+import Menu from './Menu';
+import PopularMovies from './PopularMovies';
+import PlayingMovies from './PlayingMovies';
+import HighestRatedMovies from './HighestRatedMovies';
+
+import '../css/styles.css';
 
 class App extends Component {
   render() {
     return (
-      <Router basename="/MovieDB">
-        <React.Fragment>
+      <Router basename="/MovieDB/">
+        <section className="home-grid">
+          <div className="home-grid_menu">
+            <Menu />
+          </div>
+
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/movie/details/:id" component={MovieDetails} />
-            <Route exact path="/tv/details/:id" component={ShowDetails} />
-            <Route
-              exact
-              path="/search/results/:query"
-              component={SearchResults}
-            />
+            <div className="home-grid_display">
+              <Route exact path="/" component={PopularMovies} />
+              <Route
+                exact
+                path="/HighestRated"
+                component={HighestRatedMovies}
+              />
+              <Route exact path="/NowPlaying" component={PlayingMovies} />
+              <Route exact path="/movie/details/:id" component={MovieDetails} />
+              <Route
+                exact
+                path="/search/results/:query"
+                component={SearchResults}
+              />
+              <Route exact path="/genre/:genreID" component={Genre} />
+            </div>
           </Switch>
-          <Footer />
-        </React.Fragment>
+        </section>
       </Router>
     );
   }

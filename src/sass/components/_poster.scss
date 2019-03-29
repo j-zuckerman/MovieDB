@@ -1,0 +1,19 @@
+.movie-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-gap: 1rem;
+}
+
+.poster {
+  width: 230px;
+  border-radius: 0.8rem;
+
+  &_details {
+    text-align: center;
+  }
+}
+
+.poster:hover {
+  background-color: white;
+  color: #151515;
+}

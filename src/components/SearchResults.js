@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { fetchSearchResults } from '../actions';
 import { connect } from 'react-redux';
-import '../styles/poster.css';
-import '../styles/backdrop.css';
 import { Link } from 'react-router-dom';
+
+import '../css/styles.css';
 
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w185/';
 const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
@@ -11,6 +11,10 @@ const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w1280/';
 class SearchResults extends Component {
   componentWillMount() {
     this.props.fetchSearchResults(this.props.match.params.query);
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
   createStarRating = rating => {

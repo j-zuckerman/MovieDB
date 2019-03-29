@@ -25,38 +25,12 @@ export const fetchTopRatedMovies = () => async dispatch => {
 
   dispatch({ type: 'RATED_MOVIES', payload: response.data.results });
 };
-export const fetchOnTheAirShows = () => async dispatch => {
-  const response = await movieDbAPI.get(
-    `tv/on_the_air?api_key=${apiKey}&language=en-US&page=1`
-  );
-  dispatch({ type: 'ON_THE_AIR_SHOWS', payload: response.data.results });
-};
-export const fetchTopRatedShows = () => async dispatch => {
-  const response = await movieDbAPI.get(
-    `tv/top_rated?api_key=${apiKey}&language=en-US&page=1`
-  );
-  dispatch({ type: 'RATED_SHOWS', payload: response.data.results });
-};
-
-export const fetchPopularShows = () => async dispatch => {
-  const response = await movieDbAPI.get(
-    `tv/popular?api_key=${apiKey}&language=en-US&page=1`
-  );
-  dispatch({ type: 'POPULAR_SHOWS', payload: response.data.results });
-};
 
 export const fetchMovieDetails = id => async dispatch => {
   const response = await movieDbAPI.get(
     `movie/${id}?api_key=${apiKey}&language=en-US&page=1`
   );
   dispatch({ type: 'FETCH_MOVIE', payload: response.data });
-};
-
-export const fetchShowDetails = id => async dispatch => {
-  const response = await movieDbAPI.get(
-    `tv/${id}?api_key=${apiKey}&language=en-US`
-  );
-  dispatch({ type: 'FETCH_SHOW', payload: response.data });
 };
 
 export const fetchSimilarMovies = id => async dispatch => {
@@ -66,11 +40,11 @@ export const fetchSimilarMovies = id => async dispatch => {
   dispatch({ type: 'FETCH_SIMILAR_MOVIES', payload: response.data.results });
 };
 
-export const fetchSimilarShows = id => async dispatch => {
+export const fetchMoviesByGenre = id => async dispatch => {
   const response = await movieDbAPI.get(
-    `tv/${id}/similar?api_key=${apiKey}&language=en-US&page=1`
+    `discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${id}`
   );
-  dispatch({ type: 'FETCH_SIMILAR_SHOWS', payload: response.data.results });
+  dispatch({ type: 'FETCH_MOVIES_BY_GENRE', payload: response.data.results });
 };
 
 export const fetchSearchResults = searchValue => async dispatch => {
@@ -84,10 +58,14 @@ export const fetchSearchResults = searchValue => async dispatch => {
   }
 };
 
-export const changeToMovieDisplay = () => {
-  return { type: 'CHANGE_TO_MOVIE_DISPLAY' };
+export const changeToPopular = () => {
+  return { type: 'POPULAR', payload: 'POPULAR' };
 };
 
-export const changeToShowDisplay = () => {
-  return { type: 'CHANGE_TO_SHOW_DISPLAY' };
+export const changeToTopRated = () => {
+  return { type: 'TOP_RATED', payload: 'TOP_RATED' };
+};
+
+export const changeToNowPlaying = () => {
+  return { type: 'NOW_PLAYING', payload: 'NOW_PLAYING' };
 };

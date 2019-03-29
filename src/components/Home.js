@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import Movies from './Movies';
-import Shows from './Shows';
-import { connect } from 'react-redux';
+
+import '../css/styles.css';
 
 class Home extends Component {
   render() {
-    if (this.props.display === true) {
-      return <Movies />;
-    } else return <Shows />;
+    return (
+      <section className="home-grid">
+        <Menu />
+        <Movies />
+      </section>
+    );
   }
 }
 
-const mapStateToProps = state => {
-  return { display: state.movie.onMovieDisplay };
-};
-export default connect(mapStateToProps)(Home);
+export default Home;

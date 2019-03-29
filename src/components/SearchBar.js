@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchSearchResults } from '../actions';
-import '../styles/poster.css';
-import '../styles/searchbar.css';
 import { connect } from 'react-redux';
+
+import '../css/styles.css';
 
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w92/';
 

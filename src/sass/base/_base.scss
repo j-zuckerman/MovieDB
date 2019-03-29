@@ -3,8 +3,7 @@ html {
   background: #141414;
   color: #fff;
   font-family: 'Open Sans', sans-serif;
-  font-size: 10px;
-  line-height: 1.2;
+  font-size: 12px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-user-select: none;
@@ -12,10 +11,10 @@ html {
   -ms-user-select: none;
   user-select: none;
   cursor: default;
+  margin: 0;
+  padding: 0;
 }
-
 a {
   color: #fff;
-  font-size: 20px;
+  text-decoration: none;
 }
-/*# sourceMappingURL=home.css.map */
