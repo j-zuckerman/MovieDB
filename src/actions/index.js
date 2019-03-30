@@ -47,6 +47,19 @@ export const fetchMoviesByGenre = id => async dispatch => {
   dispatch({ type: 'FETCH_MOVIES_BY_GENRE', payload: response.data.results });
 };
 
+export const fetchGenreList = () => async dispatch => {
+  const response = await movieDbAPI.get(
+    `genre/movie/list?api_key=${apiKey}&language=en-US`
+  );
+  dispatch({ type: 'FETCH_GENRE_LIST', payload: response.data.genres });
+};
+
+export const fetchMovieCast = id => async dispatch => {
+  const response = await movieDbAPI.get(
+    `movie/${id}/credits?api_key=${apiKey}`
+  );
+  dispatch({ type: 'FETCH_MOVIE_CAST', payload: response.data.cast });
+};
 export const fetchSearchResults = searchValue => async dispatch => {
   if (searchValue.length > 1) {
     const response = await movieDbAPI.get(

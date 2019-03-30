@@ -1,5 +1,6 @@
 const initialState = {
-  results: []
+  results: [],
+  genreList: []
 };
 
 export default (state = initialState, action) => {
@@ -9,6 +10,12 @@ export default (state = initialState, action) => {
         ...state,
         results: action.payload
       };
+    case 'FETCH_GENRE_LIST':
+      return {
+        ...state,
+        genreList: action.payload
+      };
+
     default:
       return state;
   }

@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchMovieDetails, fetchSimilarMovies } from '../actions';
+import {
+  fetchMovieDetails,
+  fetchSimilarMovies,
+  fetchMovieCast
+} from '../actions';
 import { Link } from 'react-router-dom';
+import MovieContainer from './MovieContainer';
+import CastContainer from './CastContainer';
 
 import '../css/styles.css';
 
-const baseImageURLBackdrop = 'https://image.tmdb.org/t/p/w780/';
+const baseImageURLPoster = 'https://image.tmdb.org/t/p/w342/';
 
 class MovieDetails extends Component {
   componentDidUpdate(prevProps) {
@@ -17,24 +23,73 @@ class MovieDetails extends Component {
   fetch = () => {
     this.props.fetchMovieDetails(this.props.match.params.id);
     this.props.fetchSimilarMovies(this.props.match.params.id);
+    this.props.fetchMovieCast(this.props.match.params.id);
   };
   componentWillMount() {
     this.fetch();
     window.scrollTo(0, 0);
   }
   render() {
-    console.log(this.props.similar);
-    if (this.props.detail !== null && this.props.similar !== null) {
+    console.log(this.props.detail);
+    if (
+      this.props.detail !== null &&
+      this.props.similar !== null &&
+      this.props.cast !== null
+    ) {
       return (
-        <section>
-          <img
-            src={`${baseImageURLBackdrop}${this.props.detail.backdrop_path}`}
-          />
-          <h1>{this.props.detail.title}</h1>
-          <h2>{this.props.detail.overview} </h2>
-          <h2>Length: {this.props.detail.runtime} minutes </h2>
-          <h2>Release Date: {this.props.detail.release_date} </h2>
-        </section>
+        <div>
+          <section className="movie-details-grid">
+            <div className="movie-details-grid_poster">
+              <img
+                src={`${baseImageURLPoster}${this.props.detail.poster_path}`}
+              />
+            </div>
+            <div className="movie-details-grid_info">
+              <h1>{this.props.detail.title}</h1>
+              <h3>{this.props.detail.tagline}</h3>
+              <h3>
+                {this.props.detail.vote_average} <i className="fas fa-star" />
+                <span className="right">
+                  {this.props.detail.spoken_languages[0].name} &nbsp;/&nbsp;
+                  {this.props.detail.runtime} minutes &nbsp;/ &nbsp;
+                  {this.props.detail.release_date}
+                </span>
+              </h3>
+              <h3>Genres</h3>
+              {this.props.detail.genres.map(genre => (
+                <Link to={`/genre/${genre.id}`}>
+                  <span>
+                    <i className="far fa-dot-circle" />
+                    &nbsp; {genre.name}
+                  </span>
+                </Link>
+              ))}
+              <h3>Overview</h3>
+              <h3>{this.props.detail.overview} </h3>
+
+              <h3>Cast</h3>
+              <CastContainer data={this.props.cast} />
+
+              {this.props.detail.homepage !== null ? (
+                <a href={this.props.detail.homepage}>Website</a>
+              ) : null}
+              {this.props.detail.imdb_id !== null ? (
+                <a
+                  href={`https://www.imdb.com/title/${
+                    this.props.detail.imdb_id
+                  }`}
+                >
+                  IMDb
+                </a>
+              ) : null}
+            </div>
+          </section>
+
+          <section>
+            <h1>Similiar Movies</h1>
+            <MovieContainer data={this.props.similar} />
+          </section>
+        </div>
       );
     } else return null;
   }
@@ -43,10 +98,11 @@ class MovieDetails extends Component {
 const mapStateToProps = state => {
   return {
     detail: state.movie.movieDetails,
-    similar: state.movie.similarMovies
+    similar: state.movie.similarMovies,
+    cast: state.movie.movieCast
   };
 };
 export default connect(
   mapStateToProps,
-  { fetchMovieDetails, fetchSimilarMovies }
+  { fetchMovieDetails, fetchSimilarMovies, fetchMovieCast }
 )(MovieDetails);

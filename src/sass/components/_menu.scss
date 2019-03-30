@@ -1,8 +1,14 @@
+#logo {
+  width: 100px;
+}
 .menu {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  border-right: 0.1px solid $color-accent;
   a {
     text-decoration: none;
   }
-  border-right: 3px solid white;
 
   &_list {
     list-style-type: none;
@@ -18,7 +24,7 @@
       text-decoration: none;
     }
     &_button:hover {
-      border-color: white;
+      border-color: $color-accent;
     }
     &_item {
       margin-bottom: 0.5rem;

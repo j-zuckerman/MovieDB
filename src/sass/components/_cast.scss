@@ -1,0 +1,12 @@
+.cast-container {
+  display: flex;
+  overflow-x: auto;
+
+  &_picture {
+    border-radius: 100rem;
+  }
+}
+
+.cast-container::-webkit-scrollbar {
+  display: none;
+}
