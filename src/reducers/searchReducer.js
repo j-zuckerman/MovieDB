@@ -1,6 +1,5 @@
 const initialState = {
-  searchValue: null,
-  searchResults: null
+  searchResults: []
 };
 
 export default (state = initialState, action) => {

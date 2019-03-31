@@ -7,8 +7,10 @@ import Menu from './Menu';
 import PopularMovies from './PopularMovies';
 import PlayingMovies from './PlayingMovies';
 import HighestRatedMovies from './HighestRatedMovies';
+import CastMember from './CastMember';
 
 import '../css/styles.css';
+import SearchBar from './SearchBar';
 
 class App extends Component {
   render() {
@@ -21,20 +23,28 @@ class App extends Component {
 
           <Switch>
             <div className="home-grid_display">
+              <SearchBar />
               <Route exact path="/" component={PopularMovies} />
+
               <Route
                 exact
                 path="/HighestRated"
                 component={HighestRatedMovies}
               />
+
               <Route exact path="/NowPlaying" component={PlayingMovies} />
+
               <Route exact path="/movie/details/:id" component={MovieDetails} />
+
               <Route
                 exact
                 path="/search/results/:query"
                 component={SearchResults}
               />
+
               <Route exact path="/genre/:genreID" component={Genre} />
+
+              <Route exact path="/person/:id" component={CastMember} />
             </div>
           </Switch>
         </section>

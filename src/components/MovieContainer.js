@@ -23,7 +23,10 @@ class MovieContainer extends Component {
               />
               <div className="poster_details">
                 <h3>{movie.title}</h3>
-                <h3>{movie.vote_average}</h3>
+                <h3>
+                  {movie.vote_average}&nbsp;
+                  <i className="fas fa-star" />
+                </h3>
               </div>
             </div>
           </Link>

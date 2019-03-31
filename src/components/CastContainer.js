@@ -10,14 +10,16 @@ class CastContainer extends Component {
     return (
       <div className="cast-container">
         {this.props.data.map(castMember => (
-          <span className="cast-container_picture">
-            <img
-              key={castMember.id}
-              className="cast-container_picture"
-              src={`${baseImageURLProfile}${castMember.profile_path}`}
-              alt="cast"
-            />
-          </span>
+          <Link to={`/person/${castMember.id}`}>
+            <span className="cast-container_picture">
+              <img
+                key={castMember.id}
+                className="cast-container_picture"
+                src={`${baseImageURLProfile}${castMember.profile_path}`}
+                alt="cast"
+              />
+            </span>
+          </Link>
         ))}
       </div>
     );

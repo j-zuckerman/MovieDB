@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import {
   fetchMovieDetails,
   fetchSimilarMovies,
-  fetchMovieCast
+  fetchMovieCast,
+  fetchMovieTrailer
 } from '../actions';
 import { Link } from 'react-router-dom';
 import MovieContainer from './MovieContainer';
@@ -24,6 +25,7 @@ class MovieDetails extends Component {
     this.props.fetchMovieDetails(this.props.match.params.id);
     this.props.fetchSimilarMovies(this.props.match.params.id);
     this.props.fetchMovieCast(this.props.match.params.id);
+    this.props.fetchMovieTrailer(this.props.match.params.id);
   };
   componentWillMount() {
     this.fetch();
@@ -34,7 +36,8 @@ class MovieDetails extends Component {
     if (
       this.props.detail !== null &&
       this.props.similar !== null &&
-      this.props.cast !== null
+      this.props.cast !== null &&
+      this.props.trailer !== null
     ) {
       return (
         <div>
@@ -46,7 +49,7 @@ class MovieDetails extends Component {
             </div>
             <div className="movie-details-grid_info">
               <h1>{this.props.detail.title}</h1>
-              <h3>{this.props.detail.tagline}</h3>
+              <h2>{this.props.detail.tagline}</h2>
               <h3>
                 {this.props.detail.vote_average} <i className="fas fa-star" />
                 <span className="right">
@@ -71,15 +74,31 @@ class MovieDetails extends Component {
               <CastContainer data={this.props.cast} />
 
               {this.props.detail.homepage !== null ? (
-                <a href={this.props.detail.homepage}>Website</a>
+                <a className="button" href={this.props.detail.homepage}>
+                  <i className="fas fa-link" />
+                  &nbsp; Website
+                </a>
               ) : null}
               {this.props.detail.imdb_id !== null ? (
                 <a
+                  className="button"
                   href={`https://www.imdb.com/title/${
                     this.props.detail.imdb_id
                   }`}
                 >
-                  IMDb
+                  <i className="fab fa-imdb" />
+                  &nbsp;IMDb
+                </a>
+              ) : null}
+              {this.props.trailer[0].key !== null ? (
+                <a
+                  className="button"
+                  href={`https://www.youtube.com/watch?v=${
+                    this.props.trailer[0].key
+                  }`}
+                >
+                  <i className="fab fa-youtube" />
+                  &nbsp;Trailer
                 </a>
               ) : null}
             </div>
@@ -99,10 +118,11 @@ const mapStateToProps = state => {
   return {
     detail: state.movie.movieDetails,
     similar: state.movie.similarMovies,
-    cast: state.movie.movieCast
+    cast: state.movie.movieCast,
+    trailer: state.movie.movieTrailer
   };
 };
 export default connect(
   mapStateToProps,
-  { fetchMovieDetails, fetchSimilarMovies, fetchMovieCast }
+  { fetchMovieDetails, fetchSimilarMovies, fetchMovieCast, fetchMovieTrailer }
 )(MovieDetails);

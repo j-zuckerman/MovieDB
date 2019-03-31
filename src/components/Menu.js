@@ -13,7 +13,11 @@ class Menu extends Component {
   render() {
     return (
       <div className="menu">
-        <h2>Browse</h2>
+        <a href="https://www.themoviedb.org/">
+          <img src={process.env.PUBLIC_URL + `/logo.png`} id="logo" />
+        </a>
+
+        <h3 className="pushedIn">Browse</h3>
         <ul className="menu_list ">
           <Link to="/">
             <li
@@ -43,7 +47,7 @@ class Menu extends Component {
           </Link>
         </ul>
 
-        <h2>Genres</h2>
+        <h3 className="pushedIn">Genres</h3>
         <ul className="menu_list">
           <Link to="/genre/28">
             <li className="menu_list_item menu_list_button">

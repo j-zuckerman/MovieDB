@@ -4,7 +4,8 @@ const initialState = {
   ratedMovies: [],
   similarMovies: [],
   movieDetails: null,
-  movieCast: null
+  movieCast: null,
+  movieTrailer: null
 };
 
 export default (state = initialState, action) => {
@@ -27,6 +28,8 @@ export default (state = initialState, action) => {
       return { ...state, movieDetails: action.payload };
     case 'FETCH_MOVIE_CAST':
       return { ...state, movieCast: action.payload };
+    case 'FETCH_MOVIE_TRAILER':
+      return { ...state, movieTrailer: action.payload };
     default:
       return state;
   }
