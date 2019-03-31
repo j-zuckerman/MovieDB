@@ -17,12 +17,12 @@ class App extends Component {
     return (
       <Router basename="/MovieDB/">
         <section className="home-grid">
-          <div className="home-grid_menu">
+          <div className="nav">
             <Menu />
           </div>
 
           <Switch>
-            <div className="home-grid_display">
+            <div className="content">
               <SearchBar />
               <Route exact path="/" component={PopularMovies} />
 

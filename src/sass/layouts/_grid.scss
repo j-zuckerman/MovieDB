@@ -1,14 +1,30 @@
+.nav {
+  grid-area: nav;
+  @include breakpoint(mobile) {
+    display: none;
+  }
+  @include breakpoint(tablet) {
+    display: none;
+  }
+  @include breakpoint(desktop) {
+    display: block;
+  }
+}
+
+.content {
+  grid-area: content;
+}
+
 .home-grid {
   display: grid;
-  grid-template-columns: 15% 80%;
+  grid-template-areas:
+    'nav'
+    'content';
   grid-gap: 2rem;
 
-  &_menu {
-    grid-column: 1/2;
-  }
-
-  &_display {
-    grid-column: 2/3;
+  @include breakpoint(desktop) {
+    grid-template-columns: 15% 80%;
+    grid-template-areas: 'nav content';
   }
 }
 

@@ -9,18 +9,20 @@ class CastContainer extends Component {
   render() {
     return (
       <div className="cast-container">
-        {this.props.data.map(castMember => (
-          <Link to={`/person/${castMember.id}`}>
-            <span className="cast-container_picture">
-              <img
-                key={castMember.id}
-                className="cast-container_picture"
-                src={`${baseImageURLProfile}${castMember.profile_path}`}
-                alt="cast"
-              />
-            </span>
-          </Link>
-        ))}
+        {this.props.data
+          .filter((castMember, id) => id < 10)
+          .map(castMember => (
+            <Link to={`/person/${castMember.id}`}>
+              <span className="cast-container_picture">
+                <img
+                  key={castMember.id}
+                  className="cast-container_picture"
+                  src={`${baseImageURLProfile}${castMember.profile_path}`}
+                  alt="cast"
+                />
+              </span>
+            </Link>
+          ))}
       </div>
     );
   }

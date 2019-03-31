@@ -37,7 +37,9 @@ class CastMember extends Component {
             <div className="movie-details-grid_info">
               <h1>{this.props.detail.name}</h1>
               <h2>Biography</h2>
-              <h3>{this.props.detail.biography}</h3>
+              <h3 style={{ marginBottom: '2rem' }}>
+                {this.props.detail.biography}
+              </h3>
 
               {this.props.detail.imdb_id !== null ? (
                 <a
@@ -50,6 +52,14 @@ class CastMember extends Component {
                   &nbsp;IMDb
                 </a>
               ) : null}
+
+              <a
+                className="button back"
+                onClick={() => this.props.history.goBack()}
+              >
+                <i className="fas fa-arrow-left" />
+                &nbsp;Back
+              </a>
             </div>
           </section>
 

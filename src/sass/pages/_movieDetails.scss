@@ -1,15 +1,21 @@
+.poster {
+  grid-area: poster;
+}
+
+.info {
+  grid-area: info;
+}
+
 .movie-details-grid {
   display: grid;
-  grid-template-columns: 35% 55%;
-
   grid-gap: 2rem;
+  grid-template-areas:
+    'poster'
+    'info';
 
-  &_poster {
-    grid-column: 1/2;
-  }
-
-  &_info {
-    grid-column: 2/3;
+  @include breakpoint(desktop) {
+    grid-template-columns: 35% 55%;
+    grid-template-areas: 'poster info';
   }
 }
 
