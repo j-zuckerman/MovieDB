@@ -1,12 +1,18 @@
 .button {
   font-size: 1rem;
-  margin: 1rem;
-  margin-top: 2rem;
-  width: 150px;
+  margin: 1.3rem;
+  width: 400px;
   padding: 1rem;
   border-radius: 5rem;
   border-width: 1px;
   border-style: solid;
   border-color: white;
   text-decoration: none;
+}
+
+.back {
+  background-color: $color-accent;
+  color: $color-primary;
+  border-color: $color-primary;
+  cursor: pointer;
 }

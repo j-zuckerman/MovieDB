@@ -18,7 +18,12 @@ class SearchResults extends Component {
   render() {
     console.log(this.props.results);
     if (this.props.results.length > 0) {
-      return <MovieContainer data={this.props.results} />;
+      return (
+        <div className="container">
+          <h1>Search Results For {this.props.match.params.query}</h1>
+          <MovieContainer data={this.props.results} />
+        </div>
+      );
     } else return null;
   }
 }

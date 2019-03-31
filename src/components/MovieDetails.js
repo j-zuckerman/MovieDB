@@ -73,13 +73,15 @@ class MovieDetails extends Component {
               <h3>Cast</h3>
               <CastContainer data={this.props.cast} />
 
-              {this.props.detail.homepage !== null ? (
+              {this.props.detail.homepage != undefined ||
+              this.props.detail.homepage != null ? (
                 <a className="button" href={this.props.detail.homepage}>
                   <i className="fas fa-link" />
                   &nbsp; Website
                 </a>
               ) : null}
-              {this.props.detail.imdb_id !== null ? (
+              {this.props.detail.imdb_id != undefined ||
+              this.props.detail.imdb_id != null ? (
                 <a
                   className="button"
                   href={`https://www.imdb.com/title/${
@@ -90,7 +92,8 @@ class MovieDetails extends Component {
                   &nbsp;IMDb
                 </a>
               ) : null}
-              {this.props.trailer[0].key !== null ? (
+              {this.props.trailer[0].key != undefined ||
+              this.props.detail.trailer[0].key != null ? (
                 <a
                   className="button"
                   href={`https://www.youtube.com/watch?v=${
@@ -101,6 +104,14 @@ class MovieDetails extends Component {
                   &nbsp;Trailer
                 </a>
               ) : null}
+
+              <a
+                className="button back"
+                onClick={() => this.props.history.goBack()}
+              >
+                <i className="fas fa-arrow-left" />
+                &nbsp;Back
+              </a>
             </div>
           </section>
 

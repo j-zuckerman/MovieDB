@@ -17,7 +17,7 @@ class PopularMovies extends Component {
     console.log(this.props.popularMovies);
     if (this.props.popularMovies.length > 0) {
       return (
-        <section>
+        <section className="container">
           <h1>Popular Movies</h1>
           <MovieContainer data={this.props.popularMovies} />
         </section>

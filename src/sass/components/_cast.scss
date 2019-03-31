@@ -1,9 +1,10 @@
 .cast-container {
   display: flex;
   overflow-x: auto;
-
+  margin-bottom: 2.2rem;
   &_picture {
-    border-radius: 100rem;
+    border-radius: 1rem;
+    width: 4rem;
   }
 }
 

@@ -46,7 +46,8 @@ class CastMember extends Component {
                     this.props.detail.imdb_id
                   }`}
                 >
-                  <i className="fab fa-imdb" />&nbsp;IMDb
+                  <i className="fab fa-imdb" />
+                  &nbsp;IMDb
                 </a>
               ) : null}
             </div>

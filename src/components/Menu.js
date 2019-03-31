@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import {
   changeToPopular,
   changeToNowPlaying,
-  changeToTopRated,
-  fetchMoviesByGenre
+  changeToTopRated
 } from '../actions';
 import '../css/styles.css';
 

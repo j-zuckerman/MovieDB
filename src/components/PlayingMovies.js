@@ -17,7 +17,7 @@ class PlayingMovies extends Component {
     console.log(this.props.playingMovies);
     if (this.props.playingMovies.length > 0) {
       return (
-        <section>
+        <section className="container">
           <h1>Now Playing Movies</h1>
           <MovieContainer data={this.props.playingMovies} />
         </section>
