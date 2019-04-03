@@ -73,32 +73,36 @@ class MovieDetails extends Component {
               <h3>Cast</h3>
               <CastContainer data={this.props.cast} />
 
-              {this.props.detail.homepage != undefined ||
+              {this.props.detail.hasOwnProperty('homepage') &&
               this.props.detail.homepage != null ? (
-                <a className="button" href={this.props.detail.homepage}>
+                <a
+                  className="button"
+                  href={this.props.detail.homepage}
+                  target="_blank"
+                >
                   <i className="fas fa-link" />
                   &nbsp; Website
                 </a>
               ) : null}
-              {this.props.detail.imdb_id != undefined ||
-              this.props.detail.imdb_id != null ? (
+              {this.props.detail.hasOwnProperty('imdb_id') ? (
                 <a
                   className="button"
                   href={`https://www.imdb.com/title/${
                     this.props.detail.imdb_id
                   }`}
+                  target="_blank"
                 >
                   <i className="fab fa-imdb" />
                   &nbsp;IMDb
                 </a>
               ) : null}
-              {this.props.trailer[0].key != undefined ||
-              this.props.detail.trailer[0].key != null ? (
+              {this.props.detail.hasOwnProperty('trailer') ? (
                 <a
                   className="button"
                   href={`https://www.youtube.com/watch?v=${
                     this.props.trailer[0].key
                   }`}
+                  target="_blank"
                 >
                   <i className="fab fa-youtube" />
                   &nbsp;Trailer
