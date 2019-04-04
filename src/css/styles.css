@@ -17,6 +17,8 @@ html {
 a {
   color: #edf0da;
   text-decoration: none; }
+  a:hover {
+    transform: translateY(-3px); }
 
 span {
   color: gainsboro;
@@ -48,7 +50,8 @@ li {
 .movie-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  grid-gap: 1rem; }
+  grid-gap: 1rem;
+  margin-left: 2rem; }
 
 .poster {
   width: 230px;
@@ -102,12 +105,20 @@ li {
   border-style: solid;
   border-color: white;
   text-decoration: none; }
+  .button:hover {
+    background-color: #edf0da;
+    color: #151515;
+    border-color: #151515; }
 
 .back {
   background-color: #edf0da;
   color: #151515;
   border-color: #151515;
   cursor: pointer; }
+  .back:hover {
+    background-color: #151515;
+    color: #edf0da;
+    border-color: #edf0da; }
 
 .cast-container {
   display: flex;
@@ -212,6 +223,7 @@ form:hover .fa {
 
 .movie-details-grid {
   display: grid;
+  margin-left: 2rem;
   grid-gap: 2rem;
   grid-template-areas: 'poster' 'info'; }
   @media (min-width: 1200px) {

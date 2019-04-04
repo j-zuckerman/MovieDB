@@ -17,6 +17,9 @@ html {
 a {
   color: $color-accent;
   text-decoration: none;
+  &:hover {
+    transform: translateY(-3px);
+  }
 }
 
 span {

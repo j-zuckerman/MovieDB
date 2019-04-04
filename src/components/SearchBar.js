@@ -14,7 +14,7 @@ class SearchBar extends Component {
     console.log(this.props);
     return (
       <div className="search-container">
-        <form action={`/search/results/${this.state.searchValue}`}>
+        <form action="javascript:void(0);">
           <input onChange={this.handleSearchinput} type="search" />
           <Link to={`/search/results/${this.state.searchValue}`}>
             <i className="fa fa-search" />

@@ -8,6 +8,12 @@
   border-style: solid;
   border-color: white;
   text-decoration: none;
+
+  &:hover {
+    background-color: $color-accent;
+    color: $color-primary;
+    border-color: $color-primary;
+  }
 }
 
 .back {
@@ -15,4 +21,10 @@
   color: $color-primary;
   border-color: $color-primary;
   cursor: pointer;
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-accent;
+    border-color: $color-accent;
+  }
 }

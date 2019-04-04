@@ -10,7 +10,7 @@ class CastContainer extends Component {
     return (
       <div className="cast-container">
         {this.props.data
-          .filter((castMember, id) => id < 10)
+          .filter((castMember, id) => id < 8)
           .map(castMember => (
             <Link to={`/person/${castMember.id}`}>
               <span className="cast-container_picture">

@@ -41,12 +41,13 @@ class CastMember extends Component {
                 {this.props.detail.biography}
               </h3>
 
-              {this.props.detail.imdb_id !== null ? (
+              {this.props.detail.hasOwnProperty('imdb_id') ? (
                 <a
                   className="button"
                   href={`https://www.imdb.com/name/${
                     this.props.detail.imdb_id
                   }`}
+                  target="_blank"
                 >
                   <i className="fab fa-imdb" />
                   &nbsp;IMDb
