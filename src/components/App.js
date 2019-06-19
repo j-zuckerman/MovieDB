@@ -9,9 +9,10 @@ import PlayingMovies from './PlayingMovies';
 import HighestRatedMovies from './HighestRatedMovies';
 import CastMember from './CastMember';
 import TopMenu from './TopMenu';
+import Favorites from './Favorites';
+import WatchList from './WatchList';
 
 import '../css/styles.css';
-import Favorites from './Favorites';
 
 class App extends Component {
   render() {
@@ -39,7 +40,7 @@ class App extends Component {
 
               <Route exact path="/favorites" component={Favorites} />
 
-              <Route exact path="/watchlist" component={CastMember} />
+              <Route exact path="/watchlist" component={WatchList} />
 
               <Route
                 exact

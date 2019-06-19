@@ -35,7 +35,6 @@ export const fetchMovieDetails = id => async dispatch => {
 };
 
 export const fetchFavorites = listOfIds => async dispatch => {
-  console.log(listOfIds);
   let responses = [];
   Promise.all(
     listOfIds.map(id =>
@@ -47,8 +46,22 @@ export const fetchFavorites = listOfIds => async dispatch => {
     });
   });
 
-  console.log(responses);
   dispatch({ type: 'FETCH_FAVORITES', payload: responses });
+};
+
+export const fetchWatchList = listOfIds => async dispatch => {
+  let responses = [];
+  Promise.all(
+    listOfIds.map(id =>
+      movieDbAPI.get(`movie/${id}?api_key=${apiKey}&language=en-US&page=1`)
+    )
+  ).then(resolvedValues => {
+    resolvedValues.forEach(value => {
+      responses.push(value.data);
+    });
+  });
+
+  dispatch({ type: 'FETCH_WATCHLIST', payload: responses });
 };
 
 export const fetchSimilarMovies = id => async dispatch => {
