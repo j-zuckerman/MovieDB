@@ -38,16 +38,10 @@ class MovieContainer extends Component {
     return (
       <div className="movie-container">
         {this.props.data.map(movie => (
-          <div>
-            <div className="poster">
-              <img
-                key={movie.id}
-                className="poster"
-                src={`${baseImageURLPoster}${movie.poster_path}`}
-                alt="poster"
-              />
-              <div className="poster_details">
-                <h2 style={{ color: 'palevioletred', zIndex: '10' }}>
+          <div className="poster">
+            <div className="overlay">
+              <div className="visible">
+                <div className="add-btn">
                   <i
                     className="fas fa-heart"
                     onClick={() => this.addToFavorite(movie.id + '')}
@@ -56,13 +50,23 @@ class MovieContainer extends Component {
                     className="far fa-eye"
                     onClick={() => this.addToWatchList(movie.id + '')}
                   />
-                </h2>
-                <h3>{movie.title}</h3>
-                <h3>
-                  {movie.vote_average}&nbsp;
-                  <i className="fas fa-star" />
-                </h3>
+                </div>
+                <div className="poster_details">
+                  <h2>{movie.title}</h2>
+                  <h2>
+                    {movie.vote_average}&nbsp;
+                    <i className="fas fa-star" />
+                  </h2>
+                  <Link to={`/movie/details/${movie.id}`}>Details </Link>
+                </div>
               </div>
+            </div>
+            <div className="poster_image">
+              <img
+                key={movie.id}
+                src={`${baseImageURLPoster}${movie.poster_path}`}
+                alt="poster"
+              />
             </div>
           </div>
         ))}
