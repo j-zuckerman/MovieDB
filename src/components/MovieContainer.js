@@ -5,6 +5,7 @@ import '../css/styles.css';
 
 const baseImageURLPoster = 'https://image.tmdb.org/t/p/w342/';
 
+//Component to display movie poster
 class MovieContainer extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);

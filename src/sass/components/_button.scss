@@ -28,3 +28,20 @@
     border-color: $color-accent;
   }
 }
+
+.top-button {
+  border: none;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  padding: 1rem;
+  color: black;
+  background-color: white;
+  margin: 0.75rem;
+
+  &:hover,
+  &:active {
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+  }
+}

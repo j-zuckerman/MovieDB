@@ -120,6 +120,19 @@ li {
     color: #edf0da;
     border-color: #edf0da; }
 
+.top-button {
+  border: none;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  padding: 1rem;
+  color: black;
+  background-color: white;
+  margin: 0.75rem; }
+  .top-button:hover, .top-button:active {
+    color: white;
+    background-color: black;
+    border: 1px solid white; }
+
 .cast-container {
   display: flex;
   overflow-x: auto;
@@ -214,6 +227,9 @@ form:hover .fa {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 1rem; }
+
+.top-menu {
+  display: flex; }
 
 .poster {
   grid-area: poster; }

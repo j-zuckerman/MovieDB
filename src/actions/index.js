@@ -34,6 +34,23 @@ export const fetchMovieDetails = id => async dispatch => {
   dispatch({ type: 'FETCH_MOVIE', payload: response.data });
 };
 
+export const fetchFavorites = listOfIds => async dispatch => {
+  console.log(listOfIds);
+  let responses = [];
+  Promise.all(
+    listOfIds.map(id =>
+      movieDbAPI.get(`movie/${id}?api_key=${apiKey}&language=en-US&page=1`)
+    )
+  ).then(resolvedValues => {
+    resolvedValues.forEach(value => {
+      responses.push(value.data);
+    });
+  });
+
+  console.log(responses);
+  dispatch({ type: 'FETCH_FAVORITES', payload: responses });
+};
+
 export const fetchSimilarMovies = id => async dispatch => {
   const response = await movieDbAPI.get(
     `movie/${id}/similar?api_key=${apiKey}&language=en-US&page=1`

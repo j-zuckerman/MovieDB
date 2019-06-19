@@ -8,9 +8,10 @@ import PopularMovies from './PopularMovies';
 import PlayingMovies from './PlayingMovies';
 import HighestRatedMovies from './HighestRatedMovies';
 import CastMember from './CastMember';
+import TopMenu from './TopMenu';
 
 import '../css/styles.css';
-import SearchBar from './SearchBar';
+import Favorites from './Favorites';
 
 class App extends Component {
   render() {
@@ -23,7 +24,7 @@ class App extends Component {
 
           <Switch>
             <div className="content">
-              <SearchBar />
+              <TopMenu />
               <Route exact path="/" component={PopularMovies} />
 
               <Route
@@ -35,6 +36,10 @@ class App extends Component {
               <Route exact path="/NowPlaying" component={PlayingMovies} />
 
               <Route exact path="/movie/details/:id" component={MovieDetails} />
+
+              <Route exact path="/favorites" component={Favorites} />
+
+              <Route exact path="/watchlist" component={CastMember} />
 
               <Route
                 exact

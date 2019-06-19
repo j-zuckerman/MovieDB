@@ -3,6 +3,7 @@ const initialState = {
   popularMovies: [],
   ratedMovies: [],
   similarMovies: [],
+  favorites: null,
   movieDetails: null,
   movieCast: null,
   movieTrailer: null,
@@ -28,10 +29,13 @@ export default (state = initialState, action) => {
       return { ...state, similarMovies: action.payload };
     case 'FETCH_MOVIE':
       return { ...state, movieDetails: action.payload };
+
     case 'FETCH_MOVIE_CAST':
       return { ...state, movieCast: action.payload };
     case 'FETCH_MOVIE_TRAILER':
       return { ...state, movieTrailer: action.payload };
+    case 'FETCH_FAVORITES':
+      return { ...state, favorites: action.payload };
     case 'ITEMS_LOADING':
       return { ...state, loading: true };
     default:
