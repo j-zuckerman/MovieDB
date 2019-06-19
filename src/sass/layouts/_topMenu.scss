@@ -1,3 +1,17 @@
 .top-menu {
   display: flex;
+  padding: 0.6rem 1.8rem;
+  width: 100%;
+  align-items: center;
+  height: 100px;
+  .link {
+    margin: 0.75rem;
+    padding: 0.3rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+  }
+
+  .end {
+    margin-left: auto;
+  }
 }

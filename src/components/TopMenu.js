@@ -5,14 +5,16 @@ import SearchBar from './SearchBar';
 class TopMenu extends Component {
   render() {
     return (
-      <div className="top_menu">
-        <SearchBar />
-        <Link to="/favorites">
-          <button className="top-button">favorite movies</button>
+      <div className="top-menu">
+        <Link to="/favorites" className="link">
+          favorites
         </Link>
-        <Link to="/watchlist">
-          <button className="top-button">Watchlist</button>
+        <Link to="/watchlist" className="link">
+          watchlist
         </Link>
+        <div className="end">
+          <SearchBar />
+        </div>
       </div>
     );
   }
