@@ -3,6 +3,7 @@ const apiKey = '9f39dd9c4f8c9231614049d653d261d6';
 
 //Action creators
 export const fetchPlayingMovies = () => async dispatch => {
+  dispatch(setItemsLoading());
   const response = await movieDbAPI.get(
     `movie/now_playing?api_key=${apiKey}&language=en-US&page=1`
   );
@@ -104,4 +105,8 @@ export const changeToTopRated = () => {
 
 export const changeToNowPlaying = () => {
   return { type: 'NOW_PLAYING', payload: 'NOW_PLAYING' };
+};
+
+export const setItemsLoading = () => {
+  return { type: 'ITEMS_LOADING' };
 };

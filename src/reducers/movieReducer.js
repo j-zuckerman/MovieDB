@@ -5,7 +5,8 @@ const initialState = {
   similarMovies: [],
   movieDetails: null,
   movieCast: null,
-  movieTrailer: null
+  movieTrailer: null,
+  loading: false
 };
 
 export default (state = initialState, action) => {
@@ -13,7 +14,8 @@ export default (state = initialState, action) => {
     case 'PLAYING_MOVIES':
       return {
         ...state,
-        playingMovies: action.payload
+        playingMovies: action.payload,
+        loading: false
       };
     case 'POPULAR_MOVIES':
       return {
@@ -30,6 +32,8 @@ export default (state = initialState, action) => {
       return { ...state, movieCast: action.payload };
     case 'FETCH_MOVIE_TRAILER':
       return { ...state, movieTrailer: action.payload };
+    case 'ITEMS_LOADING':
+      return { ...state, loading: true };
     default:
       return state;
   }
