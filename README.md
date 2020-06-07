@@ -8,6 +8,9 @@ You could view a live demo [here](https://www.jameszuckerman.com/MovieDB/).
 * [SASS](https://sass-lang.com/) - CSS pre-processor
 
 
+![MovieDB](https://user-images.githubusercontent.com/30278485/83958673-6c296880-a829-11ea-9f66-7e4708b230f3.png)
+
+
 ## Instructions
 1.) Clone repo.
 ```
